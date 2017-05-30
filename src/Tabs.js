@@ -83,9 +83,9 @@ module.exports = {
 				});
 			var tabsProps = Object.assign({}, this.props);
 			if (typeof tabsProps.className === 'undefined')
-				tabsProps.className = (this.props.stacked) ? (TABS_CLASS_NAME + TABS_STACKED_CLASS_NAME) : TABS_CLASS_NAME;
+				tabsProps.className = (this.props.stacked) ? (TABS_CLASS_NAME + ' ' + TABS_STACKED_CLASS_NAME) : TABS_CLASS_NAME;
 			else
-				tabsProps.className += (this.props.stacked) ? (' ' + TABS_CLASS_NAME + TABS_STACKED_CLASS_NAME) : TABS_CLASS_NAME;
+				tabsProps.className += (this.props.stacked) ? (' ' + TABS_CLASS_NAME + ' ' + TABS_STACKED_CLASS_NAME) : TABS_CLASS_NAME;
 			delete tabsProps.stacked;
 			delete tabsProps.tabbingType;
 			return React.createElement('div',tabsProps,childrenToRender);

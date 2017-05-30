@@ -7,7 +7,7 @@ module.exports = {
 	class SpinnerDonut extends React.Component {
 		// It's possible to use either a <span> or a <div> element (default).
 		render () {
-			if (this.props.children !== undefined && this.props.children !== 'undefined'){
+			if (typeof this.props.children !== 'undefined'){
 				throw "A 'SpinnerDonut' component should not have any children.";
 				return;
 			}

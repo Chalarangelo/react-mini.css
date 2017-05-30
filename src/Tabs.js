@@ -2,6 +2,9 @@ import React from 'react';
 import generateUniqueId from './util/idGenerator';
 
 module.exports = {
+	// Module constants (change according to your flavor file)
+	const TABS_CLASS_NAME = 'tabs';
+	const TABS_STACKED_CLASS_NAME = 'stacked';
 	// Technically speaking, the Tab is a non-component, meaning it should not be
 	// rendered on its own. It depends on the Tabs component for proper rendering.
 	class Tab extends React.Component {
@@ -80,9 +83,9 @@ module.exports = {
 				});
 			var tabsProps = Object.assign({}, this.props);
 			if (typeof tabsProps.className === 'undefined')
-				tabsProps.className = (this.props.stacked) ? 'tabs stacked' : 'tabs';
+				tabsProps.className = (this.props.stacked) ? (TABS_CLASS_NAME + TABS_STACKED_CLASS_NAME) : TABS_CLASS_NAME;
 			else
-				tabsProps.className += (this.props.stacked) ? ' tabs stacked' : ' tabs';
+				tabsProps.className += (this.props.stacked) ? (' ' + TABS_CLASS_NAME + TABS_STACKED_CLASS_NAME) : TABS_CLASS_NAME;
 			delete tabsProps.stacked;
 			delete tabsProps.tabbingType;
 			return React.createElement('div',tabsProps,childrenToRender);

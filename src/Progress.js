@@ -36,5 +36,5 @@ module.exports = {
 	Progress.defaultProps = {
 		max: PROGRESS_MAX_VALUE,
 		value: 0
-	}
+	};
 }

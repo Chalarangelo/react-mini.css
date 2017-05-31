@@ -1,31 +1,24 @@
 import React from 'react';
 
-module.exports = {
-	// Module constants (change according to your flavor file)
-	const SPINNER_DONUT_CLASS_NAME = 'spinner-donut';
-	// Donut Spinner component.
-	class SpinnerDonut extends React.Component {
-		// It's possible to use either a <span> or a <div> element (default).
-		render () {
-			if (typeof this.props.children !== 'undefined'){
-				throw "A 'SpinnerDonut' component should not have any children.";
-				return;
-			}
-			var spinnerDonutProps = Object.assign({}, this.props);
-			if (typeof spinnerDonutProps.className === 'undefined')
-				spinnerDonutProps.className =  SPINNER_DONUT_CLASS_NAME;
-			else
-				spinnerDonutProps.className += ' ' + SPINNER_DONUT_CLASS_NAME;
-			if (spinnerDonutProps.progressBar)
-				spinnerDonutProps.role = 'progressbar';
-			delete spinnerDonutProps.progressBar;
-			delete spinnerDonutProps.elementType;
-			return React.createElement(this.props.elementType == 'span' ? 'span' : 'div',spinnerDonutProps, spinnerDonutProps.children);
-		}
-	}
-	// Default props for the Donut Spinner component.
-	SpinnerDonut.defaultProps = {
-		progressBar : false,
-		elementType : 'div'
-	};
+// Module constants (change according to your flavor file)
+var spinnerDonutClassName = 'spinner-donut';
+
+// Donut Spinner component.
+function SpinnerDonut (props){
+	var outProps = Object.assign({}, props);
+	if (typeof outProps.children !== 'undefined') throw "Error: A 'SpinnerDonut' component must not have any children.";
+	if (typeof outProps.progressBar === 'undefined') outProps.progressBar = false;
+	if (typeof outProps.elementType === 'undefined') outProps.elementType = 'div';
+	if (typeof outProps.className === 'undefined')
+		outProps.className =  spinnerDonutClassName;
+	else
+		outProps.className += ' ' + spinnerDonutClassName;
+	if (outProps.progressBar)
+		outProps.role = 'progressbar';
+	delete outProps.progressBar;
+	var elementType = outProps.elementType == 'span' ? 'span' : 'div';
+	delete outProps.elementType;
+	return React.createElement(
+		elementType, outProps, outProps.children
+	);
 }

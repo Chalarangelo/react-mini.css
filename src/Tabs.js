@@ -22,10 +22,10 @@ function Tab(props){
 function Tabs(props){
 	var outProps = Object.assign({}, props);
 	if (typeof outProps.stacked === 'undefined') outProps.stacked = false;
-	if (typeof outProps.tabbingType === 'undefined') outProps.tabbingType = 'radio';
+	if (typeof outProps.multiple === 'undefined') outProps.multiple = false;
 	var group = 'tab_group_'+ generateUniqueId();
 	var children = [];
-	var temp = (Array.isArray(props.children)) ? props.children : [props.children];
+	var temp = (Array.isArray(outProps.children)) ? outProps.children : [outProps.children];
 	temp.forEach(
 		function(child) {
 			if (!child instanceof Tab) throw "Error: All children of a 'Tabs' component must be 'Tab' components.";
@@ -35,7 +35,7 @@ function Tabs(props){
 		}
 	);
 	var childrenToRender = [];
-	var tabbingType = (props.tabbingType == 'checkbox' && props.stacked) ? 'checkbox' : 'radio';
+	var tabbingType = (outProps.multiple && outProps.stacked) ? 'checkbox' : 'radio';
 	var hasChecked = false;
 	children.forEach(
 		function(child) {
@@ -70,7 +70,7 @@ function Tabs(props){
 			);
 		}
 	);
-	if (!hasChecked)
+	if (!hasChecked && !outProps.multiple)
 		childrenToRender[0] = React.createElement(
 			'input', {
 				type: tabbingType,
@@ -81,13 +81,12 @@ function Tabs(props){
 				'aria-hidden':'true'
 			}
 		);
-	var outProps = Object.assign({}, props);
 	if (typeof outProps.className === 'undefined')
-		outProps.className = (props.stacked) ? (tabsClassName + ' ' + tabsStackedClassName) : tabsClassName;
+		outProps.className = (outProps.stacked) ? (tabsClassName + ' ' + tabsStackedClassName) : tabsClassName;
 	else
-		outProps.className += (props.stacked) ? (' ' + tabsClassName + ' ' + tabsStackedClassName) : tabsClassName;
+		outProps.className += (outProps.stacked) ? (' ' + tabsClassName + ' ' + tabsStackedClassName) : tabsClassName;
 	delete outProps.stacked;
-	delete outProps.tabbingType;
+	delete outProps.multiple;
 	return React.createElement(
 		'div',outProps,childrenToRender
 	);

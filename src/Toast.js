@@ -1,17 +1,14 @@
 import React from 'react';
 
-module.exports = {
-	// Module constants (change according to your flavor file)
-	const TOAST_CLASS_NAME = 'toast';
-	// Toast component.
-	class Toast extends React.Component {
-		render() {
-			var toastProps = Object.assign({},this.props);
-			if (typeof toastProps.className === 'undefined')
-				toastProps.className = TOAST_CLASS_NAME;
-			else
-				toastProps.className += ' ' + TOAST_CLASS_NAME;
-			return React.createElement('span',toastProps, toastProps.children);
-		}
-	}
+// Module constants (change according to your flavor file)
+var toastClassName = 'toast';
+
+// Toast component.
+function Toast(props){
+	var outProps = Object.assign({},props);
+	if (typeof outProps.className === 'undefined') outProps.className = toastClassName;
+	else outProps.className += ' ' + toastClassName;
+	return React.createElement(
+		'span',outProps, outProps.children
+	);
 }

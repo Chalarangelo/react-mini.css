@@ -11,7 +11,7 @@ function Tab(props){
 	var outProps = Object.assign({}, props);
 	if (typeof outProps.checked === 'undefined') outProps.checked = false;
 	if (typeof outProps.defaultChecked === 'undefined') outProps.defaultChecked = false;
-	if (typeof outProps.tabTitle === 'undefined') throw "Error: The 'tabTitle' property of the 'Tab' component is mandatory";
+	if (typeof outProps.tabTitle === 'undefined') throw "Error: The 'tabTitle' property of the 'Tab' component is mandatory.";
 	delete outProps.tabTitle;
 	return React.createElement(
 		'div', outProps, outProps.children

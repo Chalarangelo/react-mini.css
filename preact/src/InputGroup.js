@@ -6,8 +6,8 @@ var inputGroupFluidClassName = 'fluid';
 var inputGroupVerticalClassName = 'vertical';
 
 // InputGroup component.
-function InputGroup (props){
-	var outProps = Object.assign({}, props);
+function InputGroup (attributes){
+	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.fluid === 'undefined') outProps.fluid = false;
 	if (typeof outProps.vertical === 'undefined') outProps.vertical = false;
 	if (outProps.fluid && outProps.vertical) throw "Error: A 'Table' component cannot be fluid and vertical at the same time.";

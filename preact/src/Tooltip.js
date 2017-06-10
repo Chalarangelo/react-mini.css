@@ -5,8 +5,8 @@ var tooltipClassName = 'tooltip';
 var tooltipBottomClassName = 'bottom';
 
 // Tooltip component.
-function Tooltip(props) {
-	var outProps = Object.assign({},props);
+function Tooltip(attributes) {
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.tooltipText === 'undefined') throw "Error: The 'Tooltip' component's 'tooltipText' property is mandatory. Please specify a value.";
 	if (typeof outProps.bottom === 'undefined') outProps.bottom = false;
 	if (typeof outProps.className === 'undefined')

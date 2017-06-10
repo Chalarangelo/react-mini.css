@@ -62,8 +62,8 @@ function generateUniqueId(){
 }
 
 // Image component.
-function Image (props){
-	var outProps = Object.assign({}, props);
+function Image (attributes){
+	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.src === 'undefined')
 		throw "Error: An 'Image' component must have a 'src' property.";
 	if (typeof outProps.alt === 'undefined' && typeof outProps.description === 'undefined')
@@ -96,8 +96,8 @@ function Image (props){
 }
 
 // GridContainer component.
-function GridContainer (props){
-	var outProps = Object.assign({},props);
+function GridContainer (attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.className === 'undefined') outProps.className = gridContainerClassName;
 	else outProps.className += ' ' + gridContainerClassName;
 	return h(
@@ -106,10 +106,8 @@ function GridContainer (props){
 }
 
 // GridRow component.
-function GridRow (props){
-	var outProps = Object.assign({},props);
-	if (typeof outProps.extraSmall === 'undefined' && typeof outProps.small === 'undefined' && typeof outProps.medium === 'undefined' && typeof outProps.large === 'undefined')
-		throw "Error: The 'GridColumn' component must have a defined layout for at least one screen size .";
+function GridRow (attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.className === 'undefined') outProps.className = gridRowClassName;
 	else outProps.className += ' ' + gridRowClassName;
 	if (typeof outProps.extraSmall !== 'undefined')
@@ -134,8 +132,8 @@ function GridRow (props){
 }
 
 // GridColumn component.
-function GridColumn (props){
-	var outProps = Object.assign({},props);
+function GridColumn (attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.extraSmall === 'undefined' && typeof outProps.small === 'undefined' && typeof outProps.medium === 'undefined' && typeof outProps.large === 'undefined')
 		throw "Error: The 'GridColumn' component must have a defined layout for at least one screen size .";
 	if (typeof outProps.className === 'undefined') outProps.className = '';
@@ -185,8 +183,8 @@ function GridColumn (props){
 }
 
 // InputGroup component.
-function InputGroup (props){
-	var outProps = Object.assign({}, props);
+function InputGroup (attributes){
+	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.fluid === 'undefined') outProps.fluid = false;
 	if (typeof outProps.vertical === 'undefined') outProps.vertical = false;
 	if (outProps.fluid && outProps.vertical) throw "Error: A 'Table' component cannot be fluid and vertical at the same time.";
@@ -202,8 +200,9 @@ function InputGroup (props){
 }
 
 // Checkbox component.
-function Checkbox (props){
-	var outProps = Object.assign({}, props);
+function Checkbox (attributes){
+	var outProps = Object.assign({}, attributes);
+	if (typeof outProps.labelTetxt === 'undefined') throw "Error: The 'Checkbox' component's 'labelText' property is mandatory. Please specify a value.";
 	if (typeof outProps.id === 'undefined') outProps.id = 'checkbox_'+generateUniqueId();
 	if (typeof outProps.className === 'undefined') outProps.className = '';
 	var childrenToRender = [];
@@ -233,8 +232,9 @@ function Checkbox (props){
 }
 
 // Radio component.
-function Radio (props){
-	var outProps = Object.assign({}, props);
+function Radio (attributes){
+	var outProps = Object.assign({}, attributes);
+	if (typeof outProps.labelTetxt === 'undefined') throw "Error: The 'Checkbox' component's 'labelText' property is mandatory. Please specify a value.";
 	if (typeof outProps.id === 'undefined') outProps.id = 'radio_'+generateUniqueId();
 	if (typeof outProps.className === 'undefined') outProps.className = '';
 	var childrenToRender = [];
@@ -264,8 +264,8 @@ function Radio (props){
 }
 
 // Switch component.
-function Switch (props){
-	var outProps = Object.assign({}, props);
+function Switch (attributes){
+	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.id === 'undefined') outProps.id = 'switch_'+generateUniqueId();
 	if (typeof outProps.className === 'undefined') outProps.className = '';
 	var childrenToRender = [];
@@ -297,8 +297,8 @@ function Switch (props){
 }
 
 // Button component.
-function Button(props){
-	var outProps = Object.assign({},props);
+function Button(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.type === 'undefined') outProps.type = 'button';
 	if (outProps.type != 'button' && outProps.type != 'link' && outProps.type != 'label' && outProps.type != 'input' && outProps.type != 'submit' && outProps.type != 'reset')
 		 throw "Error: A 'Button' component's 'type' propery must be one of the following: {button, link, label, input, submit, reset}.";
@@ -322,7 +322,7 @@ function Button(props){
 		outProps.value = outProps.children;
 		delete outProps.children;
 		return h(
-			'input',outProps,
+			'input',outProps
 		);
 	}
 	return h(
@@ -331,8 +331,8 @@ function Button(props){
 }
 
 // FileUpload component.
-function FileUpload (props){
-	var outProps = Object.assign({}, props);
+function FileUpload (attributes){
+	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.id === 'undefined') outProps.id = 'fileupload_'+generateUniqueId();
 	if (typeof outProps.className === 'undefined') outProps.className = '';
 	var childrenToRender = [];
@@ -363,8 +363,8 @@ function FileUpload (props){
 }
 
 // Header component.
-function Header(props){
-	var outProps = Object.assign({},props);
+function Header(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.sticky === 'undefined') outProps.sticky = false;
 	if (outProps.sticky)
 		if (typeof outProps.className === 'undefined') outProps.className = headerStickyClassName;
@@ -374,7 +374,7 @@ function Header(props){
 	temp.forEach(
 		function(child) {
 			var headElement = Object.assign({}, child);
-			var headElementProps = Object.assign({}, headElement.props);
+			var headElementProps = Object.assign({}, headElement.attributes);
 			if (headElementProps.logo) {
 				if (typeof headElementProps.className === 'undefined') headElementProps.className = headerLogoClassName;
 				else headElementProps.className += ' ' + headerLogoClassName;
@@ -382,17 +382,17 @@ function Header(props){
 				delete headElementProps.logo;
 				childrenToRender.push(
 					h(
-						headElement.type, headElementProps, headElementProps.children
+						headElement.nodeName, headElementProps, headElement.children
 					)
 				);
 			}
-			else if (headElement.type == 'a' || headElement.type == 'label') {
+			else if (headElement.nodeName == 'a' || headElement.nodeName == 'label') {
 				if (typeof headElementProps.className === 'undefined') headElementProps.className = buttonClassName;
 				else headElementProps.className += ' ' + buttonClassName;
 				headElementProps.key = 'button_'+generateUniqueId();
 				childrenToRender.push(
 					h(
-						headElement.type, headElementProps, headElementProps.children
+						headElement.nodeName, headElementProps, headElement.children
 					)
 				);
 			}
@@ -406,14 +406,14 @@ function Header(props){
 }
 
 // NavigationBar component.
-function NavigationBar(props){
-	var outProps = Object.assign({},props);
+function NavigationBar(attributes){
+	var outProps = Object.assign({},attributes);
 	var childrenToRender = [];
 	var temp = (Array.isArray(outProps.children)) ? outProps.children : [outProps.children];
 	temp.forEach(
 		function(child) {
 			var navElement = Object.assign({}, child);
-			var navElementProps = Object.assign({}, navElement.props);
+			var navElementProps = Object.assign({}, navElement.attributes);
 			if (typeof navElementProps.sublink !== 'undefined') {
 				if (typeof navElementProps.className === 'undefined') navElementProps.className = navigationSublinkPrefix+'-'+navElementProps.sublink;
 				else navElementProps.className += ' ' + navigationSublinkPrefix+'-'+navElementProps.sublink;
@@ -421,7 +421,7 @@ function NavigationBar(props){
 				delete navElementProps.sublink;
 				childrenToRender.push(
 					h(
-						navElement.type, navElementProps, navElementProps.children
+						navElement.type, navElementProps, navElement.children
 					)
 				);
 			}
@@ -434,8 +434,8 @@ function NavigationBar(props){
 }
 
 // DrawerToggle component.
-function DrawerToggle(props){
-	var outProps = Object.assign({},props);
+function DrawerToggle(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps['htmlFor'] === 'undefined') throw "Error: A 'DrawerToggle' component must have an 'htmlFor' attribute.";
 	if (typeof outProps.className === 'undefined') outProps.className = drawerToggleClassName;
 	else outProps.className += ' ' + drawerToggleClassName;
@@ -448,8 +448,8 @@ function DrawerToggle(props){
 }
 
 // Drawer component.
-function Drawer(props){
-	var outProps = Object.assign({},props);
+function Drawer(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.id === 'undefined') throw "Error: A 'Drawer' component must have an 'id' attribute.";
 	if (typeof outProps.className === 'undefined') outProps.className = drawerClassName;
 	else outProps.className += ' ' + drawerClassName;
@@ -492,8 +492,8 @@ function Drawer(props){
 }
 
 // Footer component.
-function Footer(props){
-	var outProps = Object.assign({},props);
+function Footer(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.sticky === 'undefined') outProps.sticky = false;
 	if (outProps.sticky)
 		if (typeof outProps.className === 'undefined') outProps.className = footerStickyClassName;
@@ -505,8 +505,8 @@ function Footer(props){
 }
 
 // Table component.
-function Table (props){
-	var outProps = Object.assign({}, props);
+function Table (attributes){
+	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.horizontal === 'undefined') outProps.horizontal = false;
 	if (typeof outProps.scrollable === 'undefined') outProps.scrollable = false;
 	if (typeof outProps.preset === 'undefined') outProps.preset = false;
@@ -532,8 +532,8 @@ function Table (props){
 }
 
 // Card component.
-function Card(props){
-	var outProps = Object.assign({},props);
+function Card(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.className === 'undefined') outProps.className = cardClassName;
 	else outProps.className += ' ' + cardClassName;
 	return h(
@@ -542,8 +542,8 @@ function Card(props){
 }
 
 // Section component.
-function Section(props){
-	var outProps = Object.assign({},props);
+function Section(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.className === 'undefined') outProps.className = sectionClassName;
 	else outProps.className += ' ' + sectionClassName;
 	return h(
@@ -553,8 +553,8 @@ function Section(props){
 
 // Technically speaking, the Tab is a non-component, meaning it should not be
 // rendered on its own. It depends on the Tabs component for proper rendering.
-function Tab(props){
-	var outProps = Object.assign({}, props);
+function Tab(attributes){
+	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.checked === 'undefined') outProps.checked = false;
 	if (typeof outProps.defaultChecked === 'undefined') outProps.defaultChecked = false;
 	if (typeof outProps.tabTitle === 'undefined') throw "Error: The 'tabTitle' property of the 'Tab' component is mandatory.";
@@ -565,8 +565,8 @@ function Tab(props){
 }
 
 // Tabs component.
-function Tabs(props){
-	var outProps = Object.assign({}, props);
+function Tabs(attributes){
+	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.stacked === 'undefined') outProps.stacked = false;
 	if (typeof outProps.multiple === 'undefined') outProps.multiple = false;
 	var group = 'tab_group_'+ generateUniqueId();
@@ -585,7 +585,7 @@ function Tabs(props){
 	var hasChecked = false;
 	children.forEach(
 		function(child) {
-			if (child.props.checked || child.props.defaultChecked) hasChecked = true;
+			if (child.attributes.checked || child.attributes.defaultChecked) hasChecked = true;
 			childrenToRender.push(
 				h(
 					'input', {
@@ -593,7 +593,7 @@ function Tabs(props){
 						name : group,
 						key : child.internalId+'_input',
 						id : child.internalId,
-						defaultChecked : (child.props.checked || child.props.defaultChecked) ? true : false,
+						defaultChecked : (child.attributes.checked || child.attributes.defaultChecked) ? true : false,
 						'aria-hidden': 'true'}
 					)
 			);
@@ -603,15 +603,15 @@ function Tabs(props){
 						'htmlFor' : child.internalId,
 						key : child.internalId+'_label',
 						'aria-hidden' : 'true'
-					}, child.props.tabTitle
+					}, child.attributes.tabTitle
 				)
 			);
-			var childProps = Object.assign({}, child.props);
+			var childProps = Object.assign({}, child.attributes);
 			childProps.key = child.internalId+'_content';
 			delete childProps.tabTitle;
 			childrenToRender.push(
 				h(
-					'div', childProps, childProps.children
+					'div', childProps, child.children
 				)
 			);
 		}
@@ -639,8 +639,8 @@ function Tabs(props){
 }
 
 // Toast component.
-function Toast(props){
-	var outProps = Object.assign({},props);
+function Toast(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.className === 'undefined') outProps.className = toastClassName;
 	else outProps.className += ' ' + toastClassName;
 	return h(
@@ -649,8 +649,8 @@ function Toast(props){
 }
 
 // Tooltip component.
-function Tooltip(props) {
-	var outProps = Object.assign({},props);
+function Tooltip(attributes) {
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.tooltipText === 'undefined') throw "Error: The 'Tooltip' component's 'tooltipText' property is mandatory. Please specify a value.";
 	if (typeof outProps.bottom === 'undefined') outProps.bottom = false;
 	if (typeof outProps.className === 'undefined')
@@ -666,8 +666,8 @@ function Tooltip(props) {
 }
 
 // Modal component.
-function Modal(props){
-	var outProps = Object.assign({},props);
+function Modal(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.id === 'undefined')	outProps.id = 'modal_'+ generateUniqueId();
 	if (typeof outProps.noLabel === 'undefined')	outProps.noLabel = false;
 	if (!outProps.noLabel && typeof outProps.labelText === 'undefined') outProps.labelText = 'Open modal dialog';
@@ -734,8 +734,8 @@ function Modal(props){
 }
 
 // Progress component.
-function Progress(props) {
-	var outProps = Object.assign({},props);
+function Progress(attributes) {
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.max === 'undefined') outProps.max = progressMaxValue;
 	if (typeof outProps.value === 'undefined') outProps.value = 0;
 	var isPercentage = false;
@@ -759,9 +759,9 @@ function Progress(props) {
 }
 
 // Donut Spinner component.
-function SpinnerDonut (props){
-	var outProps = Object.assign({}, props);
-	if (typeof outProps.children !== 'undefined') throw "Error: A 'SpinnerDonut' component must not have any children.";
+function SpinnerDonut (attributes){
+	var outProps = Object.assign({}, attributes);
+	if (typeof outProps.children !== 'undefined' && outProps.children.length != 0) throw "Error: A 'SpinnerDonut' component must not have any children.";
 	if (typeof outProps.progressBar === 'undefined') outProps.progressBar = false;
 	if (typeof outProps.elementType === 'undefined') outProps.elementType = 'div';
 	if (typeof outProps.className === 'undefined')
@@ -779,8 +779,8 @@ function SpinnerDonut (props){
 }
 
 // Breadcrumbs component.
-function Breadcrumbs(props){
-	var outProps = Object.assign({},props);
+function Breadcrumbs(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.className === 'undefined') outProps.className = breadcrumbsClassName;
 	else outProps.className += ' ' + breadcrumbsClassName;
 	if (typeof outProps.id === 'undefined')	outProps.id = 'breadcrumbs_'+ generateUniqueId();
@@ -804,9 +804,9 @@ function Breadcrumbs(props){
 }
 
 // Close component.
-function Close (props){
-	var outProps = Object.assign({}, props);
-	if (typeof outProps.children !== 'undefined') throw "Error: A 'Close' component must not have any children.";
+function Close (attributes){
+	var outProps = Object.assign({}, attributes);
+	if (typeof outProps.children !== 'undefined' && outProps.children.length != 0) throw "Error: A 'Close' component must not have any children.";
 	if (typeof outProps.elementType === 'undefined') outProps.elementType = 'span';
 	if (typeof outProps.className === 'undefined')
 		outProps.className =  closeClassName;

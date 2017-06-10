@@ -9,8 +9,8 @@ var gridColumnLargeSuffix = 'lg';
 var gridColumnOffsetPrefix = 'offset';
 
 // GridColumn component.
-function GridColumn (props){
-	var outProps = Object.assign({},props);
+function GridColumn (attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.extraSmall === 'undefined' && typeof outProps.small === 'undefined' && typeof outProps.medium === 'undefined' && typeof outProps.large === 'undefined')
 		throw "Error: The 'GridColumn' component must have a defined layout for at least one screen size .";
 	if (typeof outProps.className === 'undefined') outProps.className = '';

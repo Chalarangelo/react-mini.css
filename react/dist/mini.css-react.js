@@ -108,8 +108,6 @@ function GridContainer (props){
 // GridRow component.
 function GridRow (props){
 	var outProps = Object.assign({},props);
-	if (typeof outProps.extraSmall === 'undefined' && typeof outProps.small === 'undefined' && typeof outProps.medium === 'undefined' && typeof outProps.large === 'undefined')
-		throw "Error: The 'GridColumn' component must have a defined layout for at least one screen size .";
 	if (typeof outProps.className === 'undefined') outProps.className = gridRowClassName;
 	else outProps.className += ' ' + gridRowClassName;
 	if (typeof outProps.extraSmall !== 'undefined')
@@ -204,6 +202,7 @@ function InputGroup (props){
 // Checkbox component.
 function Checkbox (props){
 	var outProps = Object.assign({}, props);
+	if (typeof outProps.labelTetxt === 'undefined') throw "Error: The 'Checkbox' component's 'labelText' property is mandatory. Please specify a value.";
 	if (typeof outProps.id === 'undefined') outProps.id = 'checkbox_'+generateUniqueId();
 	if (typeof outProps.className === 'undefined') outProps.className = '';
 	var childrenToRender = [];
@@ -235,6 +234,7 @@ function Checkbox (props){
 // Radio component.
 function Radio (props){
 	var outProps = Object.assign({}, props);
+	if (typeof outProps.labelTetxt === 'undefined') throw "Error: The 'Checkbox' component's 'labelText' property is mandatory. Please specify a value.";
 	if (typeof outProps.id === 'undefined') outProps.id = 'radio_'+generateUniqueId();
 	if (typeof outProps.className === 'undefined') outProps.className = '';
 	var childrenToRender = [];
@@ -322,7 +322,7 @@ function Button(props){
 		outProps.value = outProps.children;
 		delete outProps.children;
 		return  React.createElement(
-			'input',outProps,
+			'input',outProps
 		);
 	}
 	return  React.createElement(

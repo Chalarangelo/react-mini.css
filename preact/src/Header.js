@@ -7,8 +7,8 @@ var headerLogoClassName = 'logo';
 var buttonClassName = 'button';
 
 // Header component.
-function Header(props){
-	var outProps = Object.assign({},props);
+function Header(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.sticky === 'undefined') outProps.sticky = false;
 	if (outProps.sticky)
 		if (typeof outProps.className === 'undefined') outProps.className = headerStickyClassName;
@@ -18,7 +18,7 @@ function Header(props){
 	temp.forEach(
 		function(child) {
 			var headElement = Object.assign({}, child);
-			var headElementProps = Object.assign({}, headElement.props);
+			var headElementProps = Object.assign({}, headElement.attributes);
 			if (headElementProps.logo) {
 				if (typeof headElementProps.className === 'undefined') headElementProps.className = headerLogoClassName;
 				else headElementProps.className += ' ' + headerLogoClassName;
@@ -26,17 +26,17 @@ function Header(props){
 				delete headElementProps.logo;
 				childrenToRender.push(
 					h(
-						headElement.type, headElementProps, headElementProps.children
+						headElement.nodeName, headElementProps, headElement.children
 					)
 				);
 			}
-			else if (headElement.type == 'a' || headElement.type == 'label') {
+			else if (headElement.nodeName == 'a' || headElement.nodeName == 'label') {
 				if (typeof headElementProps.className === 'undefined') headElementProps.className = buttonClassName;
 				else headElementProps.className += ' ' + buttonClassName;
 				headElementProps.key = 'button_'+generateUniqueId();
 				childrenToRender.push(
 					h(
-						headElement.type, headElementProps, headElementProps.children
+						headElement.nodeName, headElementProps, headElement.children
 					)
 				);
 			}

@@ -4,8 +4,8 @@ let { h, render, Component } = preact;
 var toastClassName = 'toast';
 
 // Toast component.
-function Toast(props){
-	var outProps = Object.assign({},props);
+function Toast(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.className === 'undefined') outProps.className = toastClassName;
 	else outProps.className += ' ' + toastClassName;
 	return h(

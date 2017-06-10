@@ -4,8 +4,8 @@ let { h, render, Component } = preact;
 var gridContainerClassName = 'container';
 
 // GridContainer component.
-function GridContainer (props){
-	var outProps = Object.assign({},props);
+function GridContainer (attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.className === 'undefined') outProps.className = gridContainerClassName;
 	else outProps.className += ' ' + gridContainerClassName;
 	return h(

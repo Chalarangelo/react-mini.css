@@ -29,7 +29,7 @@ function Button(props){
 		outProps.value = outProps.children;
 		delete outProps.children;
 		return React.createElement(
-			'input',outProps,
+			'input',outProps
 		);
 	}
 	return React.createElement(

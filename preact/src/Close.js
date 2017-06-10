@@ -4,9 +4,9 @@ let { h, render, Component } = preact;
 var closeClassName = 'close';
 
 // Close component.
-function Close (props){
-	var outProps = Object.assign({}, props);
-	if (typeof outProps.children !== 'undefined') throw "Error: A 'Close' component must not have any children.";
+function Close (attributes){
+	var outProps = Object.assign({}, attributes);
+	if (typeof outProps.children !== 'undefined' && outProps.children.length != 0) throw "Error: A 'Close' component must not have any children.";
 	if (typeof outProps.elementType === 'undefined') outProps.elementType = 'span';
 	if (typeof outProps.className === 'undefined')
 		outProps.className =  closeClassName;

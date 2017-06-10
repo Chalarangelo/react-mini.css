@@ -7,8 +7,8 @@ var tabsStackedClassName = 'stacked';
 
 // Technically speaking, the Tab is a non-component, meaning it should not be
 // rendered on its own. It depends on the Tabs component for proper rendering.
-function Tab(props){
-	var outProps = Object.assign({}, props);
+function Tab(attributes){
+	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.checked === 'undefined') outProps.checked = false;
 	if (typeof outProps.defaultChecked === 'undefined') outProps.defaultChecked = false;
 	if (typeof outProps.tabTitle === 'undefined') throw "Error: The 'tabTitle' property of the 'Tab' component is mandatory.";
@@ -19,8 +19,8 @@ function Tab(props){
 }
 
 // Tabs component.
-function Tabs(props){
-	var outProps = Object.assign({}, props);
+function Tabs(attributes){
+	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.stacked === 'undefined') outProps.stacked = false;
 	if (typeof outProps.multiple === 'undefined') outProps.multiple = false;
 	var group = 'tab_group_'+ generateUniqueId();
@@ -39,7 +39,7 @@ function Tabs(props){
 	var hasChecked = false;
 	children.forEach(
 		function(child) {
-			if (child.props.checked || child.props.defaultChecked) hasChecked = true;
+			if (child.attributes.checked || child.attributes.defaultChecked) hasChecked = true;
 			childrenToRender.push(
 				h(
 					'input', {
@@ -47,7 +47,7 @@ function Tabs(props){
 						name : group,
 						key : child.internalId+'_input',
 						id : child.internalId,
-						defaultChecked : (child.props.checked || child.props.defaultChecked) ? true : false,
+						defaultChecked : (child.attributes.checked || child.attributes.defaultChecked) ? true : false,
 						'aria-hidden': 'true'}
 					)
 			);
@@ -57,15 +57,15 @@ function Tabs(props){
 						'htmlFor' : child.internalId,
 						key : child.internalId+'_label',
 						'aria-hidden' : 'true'
-					}, child.props.tabTitle
+					}, child.attributes.tabTitle
 				)
 			);
-			var childProps = Object.assign({}, child.props);
+			var childProps = Object.assign({}, child.attributes);
 			childProps.key = child.internalId+'_content';
 			delete childProps.tabTitle;
 			childrenToRender.push(
 				h(
-					'div', childProps, childProps.children
+					'div', childProps, child.children
 				)
 			);
 		}

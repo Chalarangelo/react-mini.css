@@ -1,8 +1,8 @@
 let { h, render, Component } = preact;
 
 // Image component.
-function Image (props){
-	var outProps = Object.assign({}, props);
+function Image (attributes){
+	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.src === 'undefined')
 		throw "Error: An 'Image' component must have a 'src' property.";
 	if (typeof outProps.alt === 'undefined' && typeof outProps.description === 'undefined')

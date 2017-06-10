@@ -4,8 +4,8 @@ let { h, render, Component } = preact;
 var buttonClassName = 'button';
 
 // Button component.
-function Button(props){
-	var outProps = Object.assign({},props);
+function Button(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.type === 'undefined') outProps.type = 'button';
 	if (outProps.type != 'button' && outProps.type != 'link' && outProps.type != 'label' && outProps.type != 'input' && outProps.type != 'submit' && outProps.type != 'reset')
 		 throw "Error: A 'Button' component's 'type' propery must be one of the following: {button, link, label, input, submit, reset}.";
@@ -29,7 +29,7 @@ function Button(props){
 		outProps.value = outProps.children;
 		delete outProps.children;
 		return h(
-			'input',outProps,
+			'input',outProps
 		);
 	}
 	return h(

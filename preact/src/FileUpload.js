@@ -6,8 +6,8 @@ var inputGroupClassName = 'input-group';
 var buttonClassName = 'button';
 
 // FileUpload component.
-function FileUpload (props){
-	var outProps = Object.assign({}, props);
+function FileUpload (attributes){
+	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.id === 'undefined') outProps.id = 'fileupload_'+generateUniqueId();
 	if (typeof outProps.className === 'undefined') outProps.className = '';
 	var childrenToRender = [];

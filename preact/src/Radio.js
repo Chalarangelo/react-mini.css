@@ -5,8 +5,9 @@ import generateUniqueId from './util/idGenerator';
 var inputGroupClassName = 'input-group';
 
 // Radio component.
-function Radio (props){
-	var outProps = Object.assign({}, props);
+function Radio (attributes){
+	var outProps = Object.assign({}, attributes);
+	if (typeof outProps.labelTetxt === 'undefined') throw "Error: The 'Radio' component's 'labelText' property is mandatory. Please specify a value.";
 	if (typeof outProps.id === 'undefined') outProps.id = 'radio_'+generateUniqueId();
 	if (typeof outProps.className === 'undefined') outProps.className = '';
 	var childrenToRender = [];

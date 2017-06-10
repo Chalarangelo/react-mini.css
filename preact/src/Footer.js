@@ -4,8 +4,8 @@ let { h, render, Component } = preact;
 var footerStickyClassName = 'sticky';
 
 // Footer component.
-function Footer(props){
-	var outProps = Object.assign({},props);
+function Footer(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.sticky === 'undefined') outProps.sticky = false;
 	if (outProps.sticky)
 		if (typeof outProps.className === 'undefined') outProps.className = footerStickyClassName;

@@ -5,8 +5,8 @@ import generateUniqueId from './util/idGenerator';
 var breadcrumbsClassName = 'breadcrumbs';
 
 // Breadcrumbs component.
-function Breadcrumbs(props){
-	var outProps = Object.assign({},props);
+function Breadcrumbs(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.className === 'undefined') outProps.className = breadcrumbsClassName;
 	else outProps.className += ' ' + breadcrumbsClassName;
 	if (typeof outProps.id === 'undefined')	outProps.id = 'breadcrumbs_'+ generateUniqueId();

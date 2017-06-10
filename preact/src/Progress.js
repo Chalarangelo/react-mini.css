@@ -3,8 +3,8 @@ let { h, render, Component } = preact;
 // Module constants (change according to your flavor file)
 var progressMaxValue = 1000;
 // Progress component.
-function Progress(props) {
-	var outProps = Object.assign({},props);
+function Progress(attributes) {
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.max === 'undefined') outProps.max = progressMaxValue;
 	if (typeof outProps.value === 'undefined') outProps.value = 0;
 	var isPercentage = false;

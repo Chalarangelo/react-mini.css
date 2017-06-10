@@ -7,8 +7,8 @@ var cardClassName = 'card';
 var closeClassName = 'close';
 
 // Modal component.
-function Modal(props){
-	var outProps = Object.assign({},props);
+function Modal(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.id === 'undefined')	outProps.id = 'modal_'+ generateUniqueId();
 	if (typeof outProps.noLabel === 'undefined')	outProps.noLabel = false;
 	if (!outProps.noLabel && typeof outProps.labelText === 'undefined') outProps.labelText = 'Open modal dialog';

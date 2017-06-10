@@ -5,14 +5,14 @@ import generateUniqueId from './util/idGenerator';
 var navigationSublinkPrefix = 'sublink';
 
 // NavigationBar component.
-function NavigationBar(props){
-	var outProps = Object.assign({},props);
+function NavigationBar(attributes){
+	var outProps = Object.assign({},attributes);
 	var childrenToRender = [];
 	var temp = (Array.isArray(outProps.children)) ? outProps.children : [outProps.children];
 	temp.forEach(
 		function(child) {
 			var navElement = Object.assign({}, child);
-			var navElementProps = Object.assign({}, navElement.props);
+			var navElementProps = Object.assign({}, navElement.attributes);
 			if (typeof navElementProps.sublink !== 'undefined') {
 				if (typeof navElementProps.className === 'undefined') navElementProps.className = navigationSublinkPrefix+'-'+navElementProps.sublink;
 				else navElementProps.className += ' ' + navigationSublinkPrefix+'-'+navElementProps.sublink;
@@ -20,7 +20,7 @@ function NavigationBar(props){
 				delete navElementProps.sublink;
 				childrenToRender.push(
 					h(
-						navElement.type, navElementProps, navElementProps.children
+						navElement.type, navElementProps, navElement.children
 					)
 				);
 			}

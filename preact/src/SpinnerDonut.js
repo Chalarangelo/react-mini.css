@@ -4,9 +4,9 @@ let { h, render, Component } = preact;
 var spinnerDonutClassName = 'spinner-donut';
 
 // Donut Spinner component.
-function SpinnerDonut (props){
-	var outProps = Object.assign({}, props);
-	if (typeof outProps.children !== 'undefined') throw "Error: A 'SpinnerDonut' component must not have any children.";
+function SpinnerDonut (attributes){
+	var outProps = Object.assign({}, attributes);
+	if (typeof outProps.children !== 'undefined' && outProps.children.length != 0) throw "Error: A 'SpinnerDonut' component must not have any children.";
 	if (typeof outProps.progressBar === 'undefined') outProps.progressBar = false;
 	if (typeof outProps.elementType === 'undefined') outProps.elementType = 'div';
 	if (typeof outProps.className === 'undefined')

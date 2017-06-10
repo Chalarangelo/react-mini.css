@@ -9,10 +9,8 @@ var gridColumnMediumSuffix = 'md';
 var gridColumnLargeSuffix = 'lg';
 
 // GridRow component.
-function GridRow (props){
-	var outProps = Object.assign({},props);
-	if (typeof outProps.extraSmall === 'undefined' && typeof outProps.small === 'undefined' && typeof outProps.medium === 'undefined' && typeof outProps.large === 'undefined')
-		throw "Error: The 'GridColumn' component must have a defined layout for at least one screen size .";
+function GridRow (attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.className === 'undefined') outProps.className = gridRowClassName;
 	else outProps.className += ' ' + gridRowClassName;
 	if (typeof outProps.extraSmall !== 'undefined')

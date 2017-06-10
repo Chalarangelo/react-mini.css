@@ -9,8 +9,8 @@ var drawerPersistenClassName = 'persistent';
 var drawerCloseName = 'close';
 
 // DrawerToggle component.
-function DrawerToggle(props){
-	var outProps = Object.assign({},props);
+function DrawerToggle(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps['htmlFor'] === 'undefined') throw "Error: A 'DrawerToggle' component must have an 'htmlFor' attribute.";
 	if (typeof outProps.className === 'undefined') outProps.className = drawerToggleClassName;
 	else outProps.className += ' ' + drawerToggleClassName;
@@ -23,8 +23,8 @@ function DrawerToggle(props){
 }
 
 // Drawer component.
-function Drawer(props){
-	var outProps = Object.assign({},props);
+function Drawer(attributes){
+	var outProps = Object.assign({},attributes);
 	if (typeof outProps.id === 'undefined') throw "Error: A 'Drawer' component must have an 'id' attribute.";
 	if (typeof outProps.className === 'undefined') outProps.className = drawerClassName;
 	else outProps.className += ' ' + drawerClassName;

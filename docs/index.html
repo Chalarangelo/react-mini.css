@@ -113,7 +113,6 @@
 		        </div>
 		      </div>
 
-
 		      <div class="row" id="core">
 		        <div class="col-sm-12">
 		          <div class="card fluid">
@@ -136,9 +135,9 @@
 											<label for="core1" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
 												<pre>ReactDOM.render(
-  &lt;Image src=&quot;...&quot;
-  alt=&quot;Image&quot;
-  description=&quot;Image caption&quot; /&gt;,
+  &lt;Image src='...'
+  alt='Image'
+  description='Image caption' /&gt;,
   document.getElementById('root')
 );</pre>
 											</div>
@@ -164,29 +163,31 @@
 		        <div class="col-sm-12">
 		          <div class="card fluid">
 		            <div class="section"><h2>Grid</h2>
-									<p>The <strong>grid</strong> module </p>
+									<p>The <strong>grid</strong> module contains three components corresponding to the container, row and column classes, allowing you to create responsive layouts.</p>
 								</div>
 		            <div class="section row">
 		              <div class="col-sm-12">
 										<h3>GridContainer</h3>
-		                <p style="text-align: justify;">The <strong>GridContainer</strong> component </p>
-										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-										</ul>
-										 <p style="text-align: justify;">Note that </p>
+		                <p style="text-align: justify;">The <strong>GridContainer</strong> component is a simple fluid <code>.container</code> for your page's layout and contents. It doesn't have any special attributes that need to be specified.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group2" id="grid1" checked aria-hidden="true">
 											<label for="grid1" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;GridContainer&gt;
+    ...
+  &lt;/GridContainer&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group2" id="grid2" aria-hidden="true">
 											<label for="grid2" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(GridContainer, {
+  }, ...),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -194,24 +195,39 @@
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>GridRow</h3>
-		                <p style="text-align: justify;">The <strong>GridRow</strong> component </p>
+		                <p style="text-align: justify;">The <strong>GridRow</strong> component creates a flexible <code>.row</code>, that can specify pre-defined layouts for its children. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>extraSmall</code>: specifies a width value (between <code>1</code> and <code>12</code> or <code>'fluid'</code>) for the children of the row on extra small screens.&nbsp;<mark class="secondary">flavor-dependent</mark></li>
+											<li><code>small</code>: specifies a width value (between <code>1</code> and <code>12</code> or <code>'fluid'</code>) for the children of the row on small screens.&nbsp;</li>
+											<li><code>medium</code>: specifies a width value (between <code>1</code> and <code>12</code> or <code>'fluid'</code>) for the children of the row on medium-sized screens.&nbsp;</li>
+											<li><code>large</code>: specifies a width value (between <code>1</code> and <code>12</code> or <code>'fluid'</code>) for the children of the row on larger screens.&nbsp;</li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										 <p style="text-align: justify;">Note that all of the above attributes are optional. The <code>extraSmall</code> attribute should only be used if your <strong>mini.css</strong> flavor specifies layouts for extra small screens (the default flavor doesn't).</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group3" id="grid3" checked aria-hidden="true">
 											<label for="grid3" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;GridRow
+    small='12'
+    medium='6'
+    large='fluid'&gt;
+    ...
+  &lt;/GridRow&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group3" id="grid4" aria-hidden="true">
 											<label for="grid4" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(GridRow, {
+    small: 12,
+    medium: 6,
+    large: 'fluid'
+  }, ...),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -219,24 +235,45 @@
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>GridColumn</h3>
-		                <p style="text-align: justify;">The <strong>GridColumn</strong> component </p>
+		                <p style="text-align: justify;">The <strong>GridColumn</strong> component creates a responsive column, allowing you to specify custom layouts. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>extraSmall</code>: specifies the width, offset and order of the column on extra small screens.&nbsp;<mark>required</mark>&nbsp;<mark class="secondary">flavor-dependent</mark></li>
+											<li><code>small</code>: specifies the width, offset and order of the column on small screens.&nbsp;<mark>required</mark></li>
+											<li><code>medium</code>: specifies the width, offset and order of the column on medium-sized screens.&nbsp;<mark>required</mark></li>
+											<li><code>large</code>: specifies the width, offset and order of the column on larger screens.&nbsp;<mark>required</mark></li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										<p style="text-align: justify;">Note that it is mandatory to provide at least one of the above attributes. The <code>extraSmall</code> attribute should only be used if your <strong>mini.css</strong> flavor specifies layouts for extra small screens (the default flavor doesn't). Each of the above attributes is structured as follows:</p>
+										<ul>
+											<li><code>width</code>: specifies a width value (between <code>1</code> and <code>12</code> or <code>'fluid'</code>) for the specific layout.</li>
+											<li><code>offset</code>: specifies an offset value (between <code>0</code> and <code>11</code> ) for the specific layout.</li>
+											<li><code>order</code>: specifies an ordering value (<code>'first'</code>, <code>'last'</code> or <code>'normal'</code>) for the specific layout.</li>
+										</ul>
+										<p style="text-align: justify;">You should provide at least one of the above properties for each layout size that you have specified.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group4" id="grid5" checked aria-hidden="true">
 											<label for="grid5" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;GridColumn
+    small={{width: 12, order: 'first'}}
+    medium={{width:8, offset: 2}}
+    large={{width: 'fluid', offset: 0, order: 'normal'}}&gt;
+    ...
+  &lt;/GridColumn&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group4" id="grid6" aria-hidden="true">
 											<label for="grid6" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(GridColumn, {
+    small: {width: 12, order: 'first'},
+    medium: {width:8, offset: 2},
+    large: {width: 'fluid', offset: 0, order: 'normal'}
+  }, ...),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>

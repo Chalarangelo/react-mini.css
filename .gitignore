@@ -2,3 +2,5 @@ node_modules
 src/lib.js
 dist/lib.js
 test.html
+test-preact.html
+test-react.html

@@ -783,29 +783,31 @@ render(h(Drawer, {
 		        <div class="col-sm-12">
 		          <div class="card fluid">
 		            <div class="section"><h2>Contextual</h2>
-									<p>The <strong>contextual</strong> module </p>
+									<p>The <strong>contextual</strong> module contains components for creating toast messages, tooltips and modal dialogs.</p>
 								</div>
 		            <div class="section row">
 		              <div class="col-sm-12">
 										<h3>Toast</h3>
-		                <p style="text-align: justify;">The <strong>Toast</strong> component </p>
-										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-										</ul>
-										 <p style="text-align: justify;">Note that </p>
+		                <p style="text-align: justify;">The <strong>Toast</strong> component creates a <code>.toast</code> element, based on the attributes provided.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group18" id="contextual1" checked aria-hidden="true">
 											<label for="contextual1" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Toast&gt;
+  ...
+  &lt;/Toast&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group18" id="contextual2" aria-hidden="true">
 											<label for="contextual2" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Toast, {
+  }, ...),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -813,24 +815,33 @@ render(h(Drawer, {
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>Tooltip</h3>
-		                <p style="text-align: justify;">The <strong>Tooltip</strong> component </p>
+		                <p style="text-align: justify;">The <strong>Tooltip</strong> component creates a <code>.tooltip</code> element, based on the attributes provided. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>tooltipText</code>: specifies the text to be display when hovering over the <code>.tooltip</code>.&nbsp;<mark>required</mark></li>
+											<li><code>bottom</code>: specifies if the <code>.tooltip</code> should have the <code>.bottom</code> class (<code>true</code> or <code>false</code>).</li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										 <p style="text-align: justify;">Note that the <code>bottom</code> attribute is optional and its value will default to <code>false</code> if not specified otherwise.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group19" id="contextual3" checked aria-hidden="true">
 											<label for="contextual3" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Tooltip bottom tooltipText='Tooltip'&gt;
+  ...
+  &lt;/Tooltip&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group19" id="contextual4" aria-hidden="true">
 											<label for="contextual4" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Tooltip, {
+    bottom: true,
+    tooltipText: 'Tooltip'
+  }, ...),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -838,24 +849,33 @@ render(h(Drawer, {
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>Modal</h3>
-		                <p style="text-align: justify;">The <strong>Modal</strong> component </p>
+		                <p style="text-align: justify;">The <strong>Modal</strong> component creates a <code>.modal</code> element along with a <code>&lt;label&gt;</code> that can show it to the user. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>id</code>: specifies the <code>id</code> of the <code>.modal</code> dialog.</li>
+											<li><code>labelText</code>: specifies the text inside the <code>&lt;label&gt;</code> element that controls the display of the <code>.modal</code> dialog.</li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										 <p style="text-align: justify;">Note that both attributes are optional and will revert to their default values if not specified.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group20" id="contextual5" checked aria-hidden="true">
 											<label for="contextual5" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Modal id='modal-dialog' labelText='Open modal'&gt;
+  ...
+  &lt;/Modal&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group20" id="contextual6" aria-hidden="true">
 											<label for="contextual6" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Modal, {
+    id: 'modal-dialog',
+    labelText: 'Open modal'
+  }, ...),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -868,29 +888,36 @@ render(h(Drawer, {
 		        <div class="col-sm-12">
 		          <div class="card fluid">
 		            <div class="section"><h2>Progess</h2>
-									<p>The <strong>progress</strong> module </p>
+									<p>The <strong>progress</strong> module contains components for creating progress elements and donut spinners.</p>
 								</div>
 		            <div class="section row">
 		              <div class="col-sm-12">
 										<h3>Progress</h3>
-		                <p style="text-align: justify;">The <strong>Progress</strong> component </p>
+		                <p style="text-align: justify;">The <strong>Progress</strong> component creates a <code>&lt;progress&gt;</code> element based on the specified attributes.  Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>value</code>: specifies the <code>value</code> of the <code>&lt;progress&gt;</code> element (numeric or percentage).&nbsp;<mark>required</mark></li>
+											<li><code>max</code>: specifies the <code>max</code> value of the <code>&lt;progress&gt;</code> element (numeric only).</li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										 <p style="text-align: justify;">Note that you can use a percentage (e.g. <code>45%</code>) for <code>value</code> and you can specify a custom <code>max</code> value, both of which will be appropriately converted by the component.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group21" id="progress1" checked aria-hidden="true">
 											<label for="progress1" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Progress value='45%' max='10' /&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group21" id="progress2" aria-hidden="true">
 											<label for="progress2" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Progress, {
+    value: '45%',
+    max: '10'
+  }, null),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -898,24 +925,31 @@ render(h(Drawer, {
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>SpinnerDonut</h3>
-		                <p style="text-align: justify;">The <strong>SpinnerDonut</strong> component </p>
+		                <p style="text-align: justify;">The <strong>SpinnerDonut</strong> component creates a <code>.spinner-donut</code> element based on the specified attributes. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>progressBar</code>: specifies if the related accessibility role should be applied to the <code>.spinner-donut</code> element (<code>true</code> or <code>false</code>).</li>
+											<li><code>elementType</code>: specifies the type of the <code>.spinner-donut</code> element (<code>'div'</code> or <code>'span'</code>).</li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										 <p style="text-align: justify;">Note that both of the above attributes are optional and will use their default values if not specified.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group22" id="progress3" checked aria-hidden="true">
 											<label for="progress3" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;SpinnerDonut progressBar elementType='div' /&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group22" id="progress4" aria-hidden="true">
 											<label for="progress4" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(SpinnerDonut, {
+    progressBar: true,
+    elementType: 'div'
+  }, null),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -928,29 +962,35 @@ render(h(Drawer, {
 		        <div class="col-sm-12">
 		          <div class="card fluid">
 		            <div class="section"><h2>Utility</h2>
-									<p>The <strong>utility</strong> module </p>
+									<p>The <strong>utility</strong> module contains components for creating utilities, such as breadcrumbs and close icons.</p>
 								</div>
 		            <div class="section row">
 		              <div class="col-sm-12">
 										<h3>Breadcrumbs</h3>
-		                <p style="text-align: justify;">The <strong>Breadcrumbs</strong> component </p>
-										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-										</ul>
-										 <p style="text-align: justify;">Note that </p>
+		                <p style="text-align: justify;">The <strong>Breadcrumbs</strong> component creates a <code>.breadcrumbs</code> element and styles the children of the component accordingly.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group23" id="utility1" checked aria-hidden="true">
 											<label for="utility1" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Breadcrumbs&gt;
+    &lt;a href='#'&gt;Root&lt;/a&gt;
+    &lt;span&gt;Docs&lt;/span&gt;
+  &lt;/Breadcrumbs&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group23" id="utility2" aria-hidden="true">
 											<label for="utility2" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Breadcrumbs, {
+  }, [
+    h('a', {href: '#'}, 'Root'),
+    h('span', {}, 'Docs')
+  ]),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -958,24 +998,24 @@ render(h(Drawer, {
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>Close</h3>
-		                <p style="text-align: justify;">The <strong>Close</strong> component </p>
-										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-										</ul>
-										 <p style="text-align: justify;">Note that </p>
+		                <p style="text-align: justify;">The <strong>Close</strong> component creates a <code>.close</code> element. Note that this component is not allowed to have any children.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group24" id="utility3" checked aria-hidden="true">
 											<label for="utility3" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Close/&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group24" id="utility4" aria-hidden="true">
 											<label for="utility4" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Close, {
+  }, null),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>

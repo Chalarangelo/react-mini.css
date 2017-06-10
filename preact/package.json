@@ -1,0 +1,30 @@
+{
+  "name": "mini.css-preact",
+  "version": "1.0.0",
+  "description": "Mini.css components built with Preact.",
+  "main": "dist/mini.css-preact.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chalarangelo/react-mini.css.git"
+  },
+  "keywords": [
+    "mini.css",
+    "preact",
+    "component",
+    "library",
+		"framework"
+  ],
+  "author": "Angelos Chalaris (chalarangelo@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Chalarangelo/react-mini.css/issues"
+  },
+  "homepage": "https://chalarangelo.github.io/react-mini.css/",
+	"peerDependencies": {
+		"mini.css": "^2.3.0",
+    "preact": "^8.1.0"
+	}
+}

@@ -1,7 +1,7 @@
-import React from 'react';
+let { h, render, Component } = preact;
 
 // Module constants (change according to your flavor file)
-const progressMaxValue = 1000;
+var progressMaxValue = 1000;
 // Progress component.
 function Progress(props) {
 	var outProps = Object.assign({},props);
@@ -22,7 +22,7 @@ function Progress(props) {
 		outProps.max = progressMaxValue;
 	}
 	else if (isPercentage) outProps.value = outProps.value/100 * progressMaxValue;
-	return React.createElement(
+	return h(
 		'progress', outProps, outProps.children
 	);
 }

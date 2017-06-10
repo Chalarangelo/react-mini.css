@@ -21,6 +21,7 @@
 	.box-colored.red { background: #e53935; } .box-centered > .card.fluid {-webkit-box-pack: start; -webkit-box-align: start; -webkit-justify-content: flex-start; justify-content: flex-start; -webkit-align-self: auto; align-self: auto;} [class^='col-'] .card.fluid { margin: 2px 0 20px; }
 	h2 > a{ font-size: 1rem; float: right;} .box-left { text-align: left; } @media (max-width: 767px){.container {padding: 0.25rem !important;}.col-sm.col-lg-offset.col-lg-10{padding: 0 !important;}}
 	[class^='fore-'] { font-family: monospace, monospace;} .fore-primary { color: #0d47a1;} .fore-secondary { color: #b71c1c;} .fore-tertiary { color: #1b5e20;}
+	@media (min-width:768px){.download-head { text-align: right;}}
 	</style>
   </head>
   <body>
@@ -41,8 +42,29 @@
     <main><div class="container">
       <div class="row" style="padding-top: 40px;">
         <div class="col-sm col-lg-10 col-lg-offset-1">
-          <h1>React Library</h1>
-					<p>Coming soon...</p>
+          <h1>React &amp; Preact Libraries&nbsp;<small>Fast, lightweight components</small></h1>
+					<p style="text-align: justify;">If you want to create a progressive web app, utilize a virtual DOM or just fancy trying React (or Preact), we got you covered! You can now download the React or Preact component library, install it and create anything you want!</p>
+					<br />
+					<h2>Setup &amp; usage</h2>
+					<p style="text-align: justify;">The <strong>react-mini.css</strong> and <strong>preact-mini.css</strong> libraries are available for download on <strong>npm</strong> and <strong>yarn</strong>:</p>
+					<div class="row" style="align-items: center;">
+						<div class="col-sm-12 col-md-2 col-lg-1 download-head"><h4>React</h4></div>
+						<div class="col-sm-12 col-md-5 col-lg-4"><pre><span class="fore-tertiary">npm install</span> <span class="fore-primary">mini.css-react</span></pre></div>
+						<div class="col-sm-12 col-md-5 col-lg-4	"><pre><span class="fore-tertiary">yarn add</span> <span class="fore-primary">mini.css-react</span></pre></div>
+					</div>
+					<div class="row" style="align-items: center;">
+						<div class="col-sm-12 col-md-2 col-lg-1 download-head"><h4>Preact</h4></div>
+						<div class="col-sm-12 col-md-5 col-lg-4"><pre><span class="fore-tertiary">npm install</span> <span class="fore-primary">mini.css-preact</span></pre></div>
+						<div class="col-sm-12 col-md-5 col-lg-4	"><pre><span class="fore-tertiary">yarn add</span> <span class="fore-primary">mini.css-preact</span></pre></div>
+					</div>
+					<p style="text-align: justify;">After you install the library of your choice and setup React or Preact to work with your page, you should also include a flavor file of the <strong>mini.css</strong> framework, as described in the framework's introduction page and you're ready to go, You can use any flavor with these libraries, provided that your library variables are tweaked to match the flavor ones.</p>
+					<p style="padding-top: 1rem; padding-bottom: 1rem; text-align: justify"><mark class="primary" style="padding: 3px 6px;"><i class="fa fa-lg fa-exclamation" aria-hidden="true"></i></mark>&nbsp;For more advanced use cases, we suggest that you use something like Webpack or Browserify, so that you can better bundle your files for production.</p>
+					<br/>
+					<hr/>
+					<h2 style="padding-top: 1rem; padding-bottom: 0.5rem;">Getting started</h2>
+					<p style="text-align: justify; padding-bottom: 1rem;">Before you dive in and explore the list of components provided in these libraries, we deem it necessary to create a simple <strong>Hello World</strong> webpage, just to make sure you can test your installation and see if everything works correctly.</p>
+					<h3>Sample Code</h3>
+
         </div>
       </div>
     </div></main>

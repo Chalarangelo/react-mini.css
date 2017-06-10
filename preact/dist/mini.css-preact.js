@@ -202,7 +202,7 @@ function InputGroup (attributes){
 // Checkbox component.
 function Checkbox (attributes){
 	var outProps = Object.assign({}, attributes);
-	if (typeof outProps.labelTetxt === 'undefined') throw "Error: The 'Checkbox' component's 'labelText' property is mandatory. Please specify a value.";
+	if (typeof outProps.labelText === 'undefined') throw "Error: The 'Checkbox' component's 'labelText' property is mandatory. Please specify a value.";
 	if (typeof outProps.id === 'undefined') outProps.id = 'checkbox_'+generateUniqueId();
 	if (typeof outProps.className === 'undefined') outProps.className = '';
 	var childrenToRender = [];
@@ -234,7 +234,7 @@ function Checkbox (attributes){
 // Radio component.
 function Radio (attributes){
 	var outProps = Object.assign({}, attributes);
-	if (typeof outProps.labelTetxt === 'undefined') throw "Error: The 'Checkbox' component's 'labelText' property is mandatory. Please specify a value.";
+	if (typeof outProps.labelText === 'undefined') throw "Error: The 'Checkbox' component's 'labelText' property is mandatory. Please specify a value.";
 	if (typeof outProps.id === 'undefined') outProps.id = 'radio_'+generateUniqueId();
 	if (typeof outProps.className === 'undefined') outProps.className = '';
 	var childrenToRender = [];

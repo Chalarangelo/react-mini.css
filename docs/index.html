@@ -122,7 +122,7 @@
 		            <div class="section row">
 		              <div class="col-sm-12">
 										<h3>Image</h3>
-		                <p style="text-align: justify;">The <strong>Image</strong> component simply creates a <code>&lt;figure&gt;</code> that contains an <code>&lt;img&gt;</code> element, along with a <code>&lt;figcaption&gt;</code> element to describe it. Notable attributes the describe it are as follows:</p>
+		                <p style="text-align: justify;">The <strong>Image</strong> component simply creates a <code>&lt;figure&gt;</code> that contains an <code>&lt;img&gt;</code> element, along with a <code>&lt;figcaption&gt;</code> element to describe it. Notable attributes that describe it are as follows:</p>
 										<ul>
 											<li><code>src</code>: specifies the URL of the image.&nbsp;<mark>required</mark></li>
 											<li><code>alt</code>: specifies an alternate text for the image, if the image cannot be displayed.&nbsp;<mark>required</mark></li>
@@ -286,29 +286,37 @@
 		        <div class="col-sm-12">
 		          <div class="card fluid">
 		            <div class="section"><h2>Input Control</h2>
-									<p>The <strong>input_control</strong> module </p>
+									<p>The <strong>input_control</strong> module contains multiple components for creating custom-styled input elements using input groups, such as buttons, checkboxes, file uploads and switches.</p>
 								</div>
 		            <div class="section row">
 		              <div class="col-sm-12">
 										<h3>InputGroup</h3>
-		                <p style="text-align: justify;">The <strong>InputGroup</strong> component </p>
+		                <p style="text-align: justify;">The <strong>InputGroup</strong> component creates an <code>.input-group</code>, which you can use as a container for your <code>&lt;input&gt;</code> and <code>&lt;label&gt;</code> elements. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>fluid</code>: specifies if the <code>.input-group</code> should be <code>.fluid</code> (<code>true</code> or <code>false</code>).&nbsp;<mark class="secondary">exclusive</mark></li>
+											<li><code>vertical</code>: specifies if the <code>.input-group</code> should be <code>.vertical</code>  (<code>true</code> or <code>false</code>).&nbsp;<mark class="secondary">exclusive</mark></li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										 <p style="text-align: justify;">Note that both of the above attributes are optional, however they are mutually exclusive when enabled.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group5" id="inputcontrol1" checked aria-hidden="true">
 											<label for="inputcontrol1" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;InputGroup fluid&gt;
+    ...
+  &lt;/InputGroup&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group5" id="inputcontrol2" aria-hidden="true">
 											<label for="inputcontrol2" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(InputGroup, {
+    fluid: true
+  }, ...),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -316,24 +324,29 @@
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>Checkbox</h3>
-		                <p style="text-align: justify;">The <strong>Checkbox</strong> component </p>
+		                <p style="text-align: justify;">The <strong>Checkbox</strong> component creates an <code>.input-group</code> that contains an <code>&lt;input <span class="fore-secondary">type</span>=<span class="fore-primary">&quot;checkbox&quot;</span>&gt;</code> element and a <code>&lt;label&gt;</code> linked to it. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>labelText</code>: specifies the text that will be shown inside the <code>&lt;label&gt;</code> element.&nbsp;<mark>required</mark></li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										<p style="text-align: justify;">Note that, if not provided with an <code>id</code> attribute, the component will automatically generate its own internal <code>id</code> that will link the two elements.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group6" id="inputcontrol3" checked aria-hidden="true">
 											<label for="inputcontrol3" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Checkbox labelText='Checkbox' /&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group6" id="inputcontrol4" aria-hidden="true">
 											<label for="inputcontrol4" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Checkbox, {
+    labelText: 'Checkbox',
+  }, null),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -341,24 +354,30 @@
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>Radio</h3>
-		                <p style="text-align: justify;">The <strong>Radio</strong> component </p>
+										<p style="text-align: justify;">The <strong>Radio</strong> component creates an <code>.input-group</code> that contains an <code>&lt;input <span class="fore-secondary">type</span>=<span class="fore-primary">&quot;radio&quot;</span>&gt;</code> element and a <code>&lt;label&gt;</code> linked to it. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>labelText</code>: specifies the text that will be shown inside the <code>&lt;label&gt;</code> element.&nbsp;<mark>required</mark></li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										<p style="text-align: justify;">Note that, if not provided with an <code>id</code> attribute, the component will automatically generate its own internal <code>id</code> that will link the two elements.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group7" id="inputcontrol5" checked aria-hidden="true">
 											<label for="inputcontrol5" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Radio labelText='Radio' group='radio-group'/&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group7" id="inputcontrol6" aria-hidden="true">
 											<label for="inputcontrol6" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Radio, {
+    labelText: 'Radio',
+    group: 'radio-group'
+  }, null),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -366,24 +385,31 @@
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>Switch</h3>
-		                <p style="text-align: justify;">The <strong>Switch</strong> component </p>
+										<p style="text-align: justify;">The <strong>Switch</strong> component creates an <code>.input-group</code> that contains an <code>&lt;input&gt;</code> element of appropriate type and a <code>&lt;label&gt;</code> linked to it. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>labelText</code>: specifies the text that will be shown inside the <code>&lt;label&gt;</code> element.&nbsp;<mark>required</mark></li>
+											<li><code>type</code>: specifies the <code><span class="fore-secondary">type</span></code> of the <code>&lt;input&gt;</code> element (<code><span class="fore-primary">checkbox</span></code> or <code><span class="fore-primary">radio</span></code>).
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										<p style="text-align: justify;">Note that, if not provided with an <code>id</code> attribute, the component will automatically generate its own internal <code>id</code> that will link the two elements. Similarly, if not provided with a <code>type</code> attribute, the <code>&lt;input&gt;</code> element will default to a <code><span class="fore-primary">checkbox</span></code>.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group8" id="inputcontrol7" checked aria-hidden="true">
 											<label for="inputcontrol7" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Switch labelText='Switch' type='checkbox'/&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group8" id="inputcontrol8" aria-hidden="true">
 											<label for="inputcontrol8" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Switch, {
+    labelText: 'Switch',
+    type: 'checkbox'
+  }, null),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -391,24 +417,31 @@
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>Button</h3>
-		                <p style="text-align: justify;">The <strong>Button</strong> component </p>
+		                <p style="text-align: justify;">The <strong>Button</strong> component creates a <code>.button</code> or a <code>&lt;button&gt;</code> or an <code>&lt;input&gt;</code> element of appropriate type. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>type</code>: specifies the type of the button (<code>'button'</code>, <code>'link'</code>, <code>'label'</code>, <code>'input'</code>, <code>'submit'</code> or <code>'reset'</code>).&nbsp;</li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										 <p style="text-align: justify;">Note that if not provided with a value for the <code>type</code> attribute, the default value of <code>'button'</code> will be applied, creating a <code>&lt;button&gt;</code> element.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group9" id="inputcontrol9" checked aria-hidden="true">
 											<label for="inputcontrol9" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Button type='input'&gt;
+    Button
+  &lt;/Button&gt;
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group9" id="inputcontrol10" aria-hidden="true">
 											<label for="inputcontrol10" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Checkbox, {
+    type: 'input'
+  }, 'Button'),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -416,24 +449,29 @@
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>FileUpload</h3>
-		                <p style="text-align: justify;">The <strong>FileUpload</strong> component </p>
+										<p style="text-align: justify;">The <strong>FileUpload</strong> component creates an <code>.input-group</code> that contains an <code>&lt;input <span class="fore-secondary">type</span>=<span class="fore-primary">&quot;file&quot;</span>&gt;</code> element and a <code>&lt;label&gt;</code> linked to it. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>labelText</code>: specifies the text that will be shown inside the <code>&lt;label&gt;</code> element.&nbsp;<mark>required</mark></li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										<p style="text-align: justify;">Note that, if not provided with an <code>id</code> attribute, the component will automatically generate its own internal <code>id</code> that will link the two elements.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group10" id="inputcontrol11" checked aria-hidden="true">
 											<label for="inputcontrol11" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;FileUpload labelText='Upload file'/&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group10" id="inputcontrol12" aria-hidden="true">
 											<label for="inputcontrol12" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(FileUpload, {
+    labelText: 'Upload file'
+  }, null),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -446,29 +484,41 @@
 		        <div class="col-sm-12">
 		          <div class="card fluid">
 		            <div class="section"><h2>Navigation</h2>
-									<p>The <strong>navigation</strong> module </p>
+									<p>The <strong>navigation</strong> module contains components for creating headers, footers, navigation bars and drawers.</p>
 								</div>
 		            <div class="section row">
 		              <div class="col-sm-12">
 										<h3>Header</h3>
-		                <p style="text-align: justify;">The <strong>Header</strong> component </p>
+		                <p style="text-align: justify;">The <strong>Header</strong> component creates a <code>&lt;header&gt;</code> element and styles its contents appropriately, by applying the necessary classes. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>sticky</code>: specifies if the <code>&lt;header&gt;</code> is <code>.sticky</code> or not (<code>true</code> or <code>false</code>).&nbsp;</li>
+											<li><code>logo</code>: applied on one child (usually the first), specifies the element on which the <code>.logo</code> class should be applied.</li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										 <p style="text-align: justify;">Note that both of the above attributes are optional. All elements inside the component will be styled as buttons (by applying the <code>.button</code> class) to display properly, based on the framework's guidelines.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group11" id="navigation1" checked aria-hidden="true">
 											<label for="navigation1" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Header sticky&gt;
+    &lt;a logo href='#'&gt;Logo&lt;/a&gt;
+    &lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+  &lt;/Header&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group11" id="navigation2" aria-hidden="true">
 											<label for="navigation2" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Header, {
+    sticky: true
+  }, [
+    h('a', {href: '#', logo: true}, 'Logo'),
+    h('a', {href: '#'}, 'Home')
+  ]),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -476,7 +526,7 @@
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>NavigationBar</h3>
-		                <p style="text-align: justify;">The <strong>Navigationbar</strong> component </p>
+		                <p style="text-align: justify;">The <strong>NavigationBar</strong> component </p>
 										<ul>
 											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
 											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
@@ -526,24 +576,32 @@
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>Footer</h3>
-		                <p style="text-align: justify;">The <strong>Footer</strong> component </p>
+										<p style="text-align: justify;">The <strong>Footer</strong> component creates a <code>&lt;footer&gt;</code> element. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>sticky</code>: specifies if the <code>&lt;footer&gt;</code> is <code>.sticky</code> or not (<code>true</code> or <code>false</code>).</li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										 <p style="text-align: justify;">Note that the above attributes is optional and will default to <code>false</code> if not value is specified.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group14" id="navigation7" checked aria-hidden="true">
 											<label for="navigation7" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Footer sticky&gt;
+    &lt;p&gt;Copyright 2017 - Web corporation&lt;/a&gt;
+  &lt;/Footer&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group14" id="navigation8" aria-hidden="true">
 											<label for="navigation8" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Footer, {
+    sticky: true
+  }, h('p', {}, 'Copyright 2017 - Web corporation')
+  ),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>

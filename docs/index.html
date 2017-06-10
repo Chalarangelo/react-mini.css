@@ -503,7 +503,7 @@
 												<pre>ReactDOM.render(
   &lt;Header sticky&gt;
     &lt;a logo href='#'&gt;Logo&lt;/a&gt;
-    &lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+    &lt;a href='#'&gt;Home&lt;/a&gt;
   &lt;/Header&gt;,
   document.getElementById('root')
 );</pre>
@@ -526,24 +526,34 @@
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>NavigationBar</h3>
-		                <p style="text-align: justify;">The <strong>NavigationBar</strong> component </p>
+		                <p style="text-align: justify;">The <strong>NavigationBar</strong> component creates a <code>&lt;nav</code> element and styles its contents, according to their properties. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>sublink</code>: applied on children (one or more), specifies their sublevel.</li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										 <p style="text-align: justify;">Note that elements inside the component that are given a <code>sublink</code> attribute, will get a <code>.sublink-</code> class applied to them, according to the value of the attribute.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group12" id="navigation3" checked aria-hidden="true">
 											<label for="navigation3" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;NavigationBar&gt;
+    &lt;a href='#'&gt;Home&lt;/a&gt;
+    &lt;a href='#' sublink='1'&gt;About&lt;/a&gt;
+  &lt;/NavigationBar&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group12" id="navigation4" aria-hidden="true">
 											<label for="navigation4" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(NavigationBar, {
+  }, [
+    h('a', {href: '#'}, 'Home'),
+    h('a', {href: '#', sublink: 1}, 'About')
+  ]),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -551,24 +561,46 @@
 								<div class="section row">
 		              <div class="col-sm-12">
 										<h3>Drawer &amp; DrawerToggle</h3>
-		                <p style="text-align: justify;">The <strong>Drawer</strong> component </p>
+		                <p style="text-align: justify;">The <strong>Drawer</strong> and <strong>DrawerToggle</strong> components create <code>.drawer</code> and <code>.drawer-toggle</code> elements respectively, while applying the necessary styles and adding the elements required to make them fully functional.  Notable attributes that describe them are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>persistent</code>: applied to both components, specifies if the <code>.drawer</code> is <code>.persistent</code> (<code>true</code> or <code>false</code>).</li>
+											<li><code>id</code> and <code>htmlFor</code>: <code>id</code> is applied to <strong>Drawer</strong> and <code>htmlFor</code> is applied to <strong>DrawerToggle</strong>, specify the link between the two components.&nbsp;<mark>required</mark></li>
+											<li><code>right</code>: applied to <strong>Drawer</strong>, specifies if the <code>.drawer</code> is <code>.right</code>(<code>true</code> or <code>false</code>).</li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										 <p style="text-align: justify;">Note that <code>id</code> and <code>htmlFor</code> need to match for the components to work correctly together. Also note that the other attributes are optional and their values will default to <code>false</code> if not specified.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group13" id="navigation5" checked aria-hidden="true">
 											<label for="navigation5" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;DrawerToggle htmlFor='drawer-menu' persistent /&gt;,
+  document.getElementById('root')
+);
+
+ReactDOM.render(
+  &lt;Drawer id='drawer-menu' persistent&gt;
+    ...
+  &lt;/Drawer&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group13" id="navigation6" aria-hidden="true">
 											<label for="navigation6" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(DrawerToggle, {
+    htmlFor: 'drawer-menu',
+    persistent: true
+  }, null),
+  document.getElementById('root')
+);
+
+render(h(Drawer, {
+    id: 'drawer-menu',
+    persistent: true
+  }, ...),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -614,29 +646,39 @@
 		        <div class="col-sm-12">
 		          <div class="card fluid">
 		            <div class="section"><h2>Table</h2>
-									<p>The <strong>table</strong> module </p>
+									<p>The <strong>table</strong> module provides a single component for creating and styling tables.</p>
 								</div>
 		            <div class="section row">
 		              <div class="col-sm-12">
 										<h3>Table</h3>
-		                <p style="text-align: justify;">The <strong>Table</strong> component </p>
+		                <p style="text-align: justify;">The <strong>Table</strong> component creates a <code>&lt;table&gt;</code> element and applies the necessary classes, based on the attributes provided. Notable attributes that describe it are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>scrollable</code>: specifies if the <code>&lt;table&gt;</code> is <code>.scrollable</code> or not (<code>true</code> or <code>false</code>).&nbsp;<mark class="secondary">exclusive</mark></li>
+											<li><code>horizontal</code>: specifies if the <code>&lt;table&gt;</code> is <code>.horizontal</code> or not (<code>true</code> or <code>false</code>).&nbsp;<mark class="secondary">exclusive</mark></li>
+											<li><code>preset</code>: specifies if the <code>&lt;table&gt;</code> is <code>.preset</code> or not (<code>true</code> or <code>false</code>).</li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										 <p style="text-align: justify;">Note that the <code>scrollable</code> and <code>horizontal</code> attributes are optional, however they are mutually exclusive when enabled.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group15" id="table1" checked aria-hidden="true">
 											<label for="table1" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Table horizontal preset&gt;
+    ...
+  &lt;/Table&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group15" id="table2" aria-hidden="true">
 											<label for="table2" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Table, {
+    horizontal: true,
+    preset: true
+  }, ...),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -649,29 +691,33 @@
 		        <div class="col-sm-12">
 		          <div class="card fluid">
 		            <div class="section"><h2>Card</h2>
-									<p>The <strong>card</strong> module </p>
+									<p>The <strong>card</strong> module contains two components that allow the creation of cards and sections respectively.</p>
 								</div>
 		            <div class="section row">
 		              <div class="col-sm-12">
 										<h3>Card &amp; Section</h3>
-		                <p style="text-align: justify;">The <strong>Card</strong> component </p>
-										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-										</ul>
-										 <p style="text-align: justify;">Note that </p>
+		                <p style="text-align: justify;">The <strong>Card</strong> and <strong>Section</strong> components are used to create <code>.card</code> and <code>.section</code> elements respectively.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group16" id="card1" checked aria-hidden="true">
 											<label for="card1" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Card&gt;
+    &lt;Section&gt;
+      ...
+    &lt;/Section&gt;
+  &lt;/Card&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group16" id="card2" aria-hidden="true">
 											<label for="card2" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Card, {
+  }, h(Section, {}, ...)),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>
@@ -684,29 +730,47 @@
 		        <div class="col-sm-12">
 		          <div class="card fluid">
 		            <div class="section"><h2>Tab</h2>
-									<p>The <strong>tab</strong> module </p>
+									<p>The <strong>tab</strong> module contains a component for creating tabs, along with a complementary component for creating the inner structure of tabs.</p>
 								</div>
 		            <div class="section row">
 		              <div class="col-sm-12">
 										<h3>Tabs &amp; Tab</h3>
-		                <p style="text-align: justify;">The <strong>Tabs</strong> component </p>
+		                <p style="text-align: justify;">The <strong>Tabs</strong> component creates a <code>.tabs</code> container, along with all the necessary elements to support tabbed navigation. All the children of the <strong>Tabs</strong> component must be based on the <strong>Tab</strong> component, which serves as a complementary component. Notable attributes that describe them are as follows:</p>
 										<ul>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
-											<li><code></code>: specifies.&nbsp;<mark>required</mark></li>
+											<li><code>tabTitle</code>: applied on <strong>Tab</strong> component, specifies the text inside the <code>&lt;label&gt;</code> of the tab.&nbsp;<mark>required</mark></li>
+											<li><code>stacked</code>: applied on <strong>Tabs</strong> component, specifies if the tabs are <code>.stacked</code> or not (<code>true</code> or <code>false</code>).</li>
+											<li><code>multiple</code>: applied on <strong>Tabs</strong> component, specifies if the tabs allow multiple open at the same time or not (<code>true</code> or <code>false</code>).</li>
 										</ul>
-										 <p style="text-align: justify;">Note that </p>
+										 <p style="text-align: justify;">Note that the value of <code>multiple</code> will only be applied if the value of <code>stacked</code> is set to <code>true</code>, otherwise it will default to <code>false</code>.</p>
 		                <h4>Sample code</h4>
 										<div class="tabs stacked">
 											<input type="radio" name="tab-group17" id="tab1" checked aria-hidden="true">
 											<label for="tab1" aria-hidden="true">&nbsp;<img src="icons/react.svg" width="28px" height="28px" style="vertical-align:middle; background: #fafafa; border-radius: 100%; padding:2px;"/>&nbsp;React</label>
 											<div>
-												<pre></pre>
+												<pre>ReactDOM.render(
+  &lt;Tabs stacked multiple&gt;
+    &lt;Tab tabTitle='Tab 1'&gt;
+      ...
+    &lt;/Tab&gt;
+    &lt;Tab tabTitle='Tab 2'&gt;
+      ...
+    &lt;/Tab&gt;
+  &lt;/Tabs&gt;,
+  document.getElementById('root')
+);</pre>
 											</div>
 											<input type="radio" name="tab-group17" id="tab2" aria-hidden="true">
 											<label for="tab2" aria-hidden="true">&nbsp;<img src="icons/preact.svg" width="28px" height="28px" style="vertical-align:middle; padding:2px; padding-top:0;"/>&nbsp;Preact</label>
 											<div>
-												<pre></pre>
+												<pre>render(h(Tabs, {
+    stacked: true,
+    multiple: true
+  }, [
+    h(Tab, {tabTitle: 'Tab 1'}, ...),
+    h(Tab, {tabTitle: 'Tab 2'}, ...)
+  ]),
+  document.getElementById('root')
+);</pre>
 											</div>
 										</div>
 		              </div>

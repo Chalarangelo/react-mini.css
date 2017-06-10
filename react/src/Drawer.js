@@ -38,7 +38,7 @@ function Drawer(props){
 			'input', {
 				id: outProps.id,
 				type: 'checkbox',
-				key: outProps.id+generateUniqueId()+'_checkbox';
+				key: outProps.id+generateUniqueId()+'_checkbox'
 			}
 		)
 	);
@@ -48,14 +48,14 @@ function Drawer(props){
 			'label', {
 				'htmlFor':outProps.id,
 				className: drawerCloseName,
-				key: outProps.id+generateUniqueId()+'_close';
+				key: outProps.id+generateUniqueId()+'_close'
 			}
 		)
 	);
 	delete outProps.id;
 	delete outProps.right;
 	delete outProps.persistent;
-	outProps.key = outProps.id+generateUniqueId()+'_drawer';
+	outProps.key = outProps.id+generateUniqueId()+'_drawer'
 	childrenToRender.push(
 		React.createElement(
 			'div', outProps, children

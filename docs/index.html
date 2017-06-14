@@ -5,13 +5,13 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>mini.css - React and Preact Libraries</title>
 	<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="mini.css - Minimal, responsive, style-agnostic CSS framework">
+	<meta name="description" content="Fast, lightweight mini.css components built with React/Preact">
 	<meta name="keywords" content="mini, mini.css, CSS, framework, react, preact ">
 	<meta name="author" content="Angelos Chalaris (chalarangelo)">
-	<meta property="og:title" content="mini.css - Minimal, responsive, style-agnostic CSS framework">
+	<meta property="og:title" content="mini.css React/Preact libraries - Fast, lightweight mini.css components built with React/Preact">
 	<meta property="og:description" content="mini.css is a tiny CSS framework designed to build quick, modern and responsive websites."/>
 	<meta property="og:type" content="website"/><meta property="og:image" content="page_thumb.png">
-	<meta property="og:url" content="https://chalarangelo.github.io/mini.css/"><link rel="icon" type="image/png" href="favicon.png">
+	<meta property="og:url" content="https://chalarangelo.github.io/react-mini.css/"><link rel="icon" type="image/png" href="favicon.png">
 	<style>
 	@font-face { font-family: 'Noto Sans'; font-style: normal; font-weight: 400; src: local('Noto Sans'), local('NotoSans'), url(https://fonts.gstatic.com/s/notosans/v6/erE3KsIWUumgD1j_Ca-V-xJtnKITppOI_IvcXXDNrsc.woff2) format('woff2'); unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
 	@font-face { font-family: 'Noto Sans'; font-style: normal; font-weight: 400; src: local('Noto Sans'), local('NotoSans'), url(https://fonts.gstatic.com/s/notosans/v6/LeFlHvsZjXu2c3ZRgBq9nFtXRa8TVwTICgirnJhmVJw.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
@@ -29,54 +29,25 @@
   </head>
   <body>
 		<header class="sticky">
-			<a href="index.html" class="logo"><span id="header-logo">m</span></a>
+			<a href="http://minicss.org/" class="logo"><span id="header-logo">m</span></a>
 				<label class="drawer-toggle button" for="navigation-toggle"></label>
-			<a href="index.html" class="button hidden-sm">Introduction</a> <a href="modules.html" class="button hidden-sm">Modules</a>
-			<a href="flavors.html" class="button hidden-sm">Flavors</a> <a href="templates.html" class="button hidden-sm">Templates</a>
-			<a href="customization/index.html" class="button hidden-sm">Customization</a> <a href="quick_reference.html" class="button hidden-sm">Quick Reference</a>
-			<a href="https://github.com/Chalarangelo/mini.css" class="button"><i class="fa fa-github" aria-hidden="true" style="font-size: 1.3em; position: relative; bottom: -2px; margin-right: 2px;"></i>&nbsp;Github</a>
+			<a href="http://minicss.org/" class="button hidden-sm">Introduction</a> <a href="http://minicss.org/modules" class="button hidden-sm">Modules</a>
+			<a href="http://minicss.org/flavors" class="button hidden-sm">Flavors</a> <a href="http://minicss.org/templates" class="button hidden-sm">Templates</a>
+			<a href="http://minicss.org/customization" class="button hidden-sm">Customization</a> <a href="http://minicss.org/quick_reference" class="button hidden-sm">Quick Reference</a>
+			<a href="https://github.com/Chalarangelo/react-mini.css" class="button"><i class="fa fa-github" aria-hidden="true" style="font-size: 1.3em; position: relative; bottom: -2px; margin-right: 2px;"></i>&nbsp;Github</a>
 		</header>
 		<div class="container" style="padding-left: 0.25rem;">
 			<div class="row"> <input type="checkbox" id="navigation-toggle"> <nav class="drawer col-md-4 col-lg-2">
 				<label class="close" for="navigation-toggle"></label>
-				<a href="index.html"><h4 style="margin-left: 0;">Introduction</h4></a>
-				<h4 style="margin-left: 0;">Modules</h4> <a href="core.html#core-title">Core</a>
-				<a href="core.html#typography" class="sublink-1">Typography</a> <a href="core.html#headings" class="sublink-1">Headings</a>
-				<a href="core.html#common-textual-elements" class="sublink-1">Common textual elements</a>
-				<a href="core.html#lists" class="sublink-1">Lists</a> <a href="core.html#images-captions" class="sublink-1">Image responsiveness &amp; captions</a>
-				<br/> <a href="grid.html#grid-title">Grid</a>
-				<a href="grid.html#basic-layout" class="sublink-1">Basic layout</a> <a href="grid.html#screen-specific-layout" class="sublink-1">Screen specific layouts</a>
-				<a href="grid.html#predefined-layout" class="sublink-1">Predefined layouts</a> <a href="grid.html#column-offset" class="sublink-1">Column offsets</a>
-				<a href="grid.html#column-reorder" class="sublink-1">Column reordering</a> <a href="grid.html#media-object" class="sublink-1">Media object pattern</a>
-				<br/> <a href="input_control.html#input-control-title">Input Control</a>
-				<a href="input_control.html#forms-input" class="sublink-1">Forms &amp; input</a> <a href="input_control.html#checkbox-radio" class="sublink-1">Checkboxes &amp; radio buttons</a> <a href="input_control.html#switches" class="sublink-1">Switches</a>
-				<a href="input_control.html#buttons" class="sublink-1">Buttons &amp; button groups</a> <a href="input_control.html#file-upload" class="sublink-1">File upload buttons</a>
-				<br/> <a href="navigation.html#navigation-title">Navigation</a>
-				<a href="navigation.html#header" class="sublink-1">Header</a> <a href="navigation.html#navigation-bar" class="sublink-1">Navigation bar</a> <a href="navigation.html#drawer" class="sublink-1">Drawer</a>
-				<a href="navigation.html#footer" class="sublink-1">Footer</a> <a href="navigation.html#sticky" class="sublink-1">Sticky headers &amp; footers</a>
-				<br/> <a href="table.html#table-title">Table</a>
-				<a href="table.html#syntax-responsiveness" class="sublink-1">Basic syntax &amp; responsiveness</a> <a href="table.html#scrollable-tables" class="sublink-1">Scrollable tables</a>
-				<a href="table.html#horizontal-tables" class="sublink-1">Horizontal tables</a> <a href="table.html#variants-matrices" class="sublink-1">Table variants &amp; matrices</a>
-				<br/> <a href="card.html#card-title">Card</a>
-				<a href="card.html#basic-syntax" class="sublink-1">Basic syntax</a> <a href="card.html#sections-media" class="sublink-1">Sections &amp; media</a>
-				<a href="card.html#sizing-fluidity" class="sublink-1">Card sizing &amp; fluidity</a> <a href="card.html#color-variants" class="sublink-1">Card color variants</a>
-				<br/> <a href="tab.html#tab-title">Tab</a>
-				<a href="tab.html#basic-syntax" class="sublink-1">Basic syntax</a> <a href="tab.html#stacked-tabs" class="sublink-1">Stacked tabs</a>
-				<br/> <a href="contextual.html#contextual-title">Contextual</a>
-				<a href="contextual.html#text-highlighting" class="sublink-1">Text highlighting</a> <a href="contextual.html#toasts" class="sublink-1">Toasts</a>
-				<a href="contextual.html#tooltips" class="sublink-1">Tooltips</a> <a href="contextual.html#modals" class="sublink-1">Modals</a>
-				<br/> <a href="progress.html#progress-title">Progress</a>
-				<a href="progress.html#basic-progress-bar" class="sublink-1">Basic progress bar</a> <a href="progress.html#progress-variants" class="sublink-1">Progress bar variants</a>
-				<a href="progress.html#donut-spinner" class="sublink-1">Donut spinner</a> <a href="progress.html#spinner-variants" class="sublink-1">Donut spinner variants</a>
-				<br/> <a href="utility.html#utility-title">Utility</a>
-				<a href="utility.html#visibility-helpers" class="sublink-1">Visibility helpers</a> <a href="utility.html#borders-shadows" class="sublink-1">Generic borders &amp; shadows</a>
-				<a href="utility.html#responsive-sizing" class="sublink-1">Responsive sizing &amp; spacing classes</a>
-				<a href="utility.html#responsive-visibility" class="sublink-1">Responsive visibility helpers</a> <a href="utility.html#breadcrumbs" class="sublink-1">Breadcrumbs</a>
-				<a href="utility.html#close-icon" class="sublink-1">Close icon</a>
-				<a href="flavors.html"><h4 style="margin-left: 0;">Flavors</h4></a>
-				<a href="templates.html"><h4 style="margin-left: 0;">Templates</h4></a>
-				<a href="customization/index.html"><h4 style="margin-left: 0;">Customization</h4></a>
-				<a href="quick_reference.html"><h4 style="margin-left: 0;">Quick Reference</h4></a>
+				<a href="http://minicss.org/"><h4 style="margin-left: 0;">Introduction</h4></a>
+				<a href="http://minicss.org/modules"><h4 style="margin-left: 0;">Modules</h4></a>
+				<a href="http://minicss.org/flavors"><h4 style="margin-left: 0;">Flavors</h4></a>
+				<a href="http://minicss.org/templates"><h4 style="margin-left: 0;">Templates</h4></a>
+				<a href="http://minicss.org/customization"><h4 style="margin-left: 0;">Customization</h4></a>
+				<a href="http://minicss.org/quick_reference"><h4 style="margin-left: 0;">Quick Reference</h4></a>
+				<a href="index.html"><h4 style="margin-left: 0;">React &amp; Preact Libraries</h4></a>
+				<a href="#core">Core</a> <a href="#grid">Grid</a> <a href="#input-control">Input Control</a> <a href="#navigation">Navigation</a> <a href="#table">Table</a>
+				<a href="#card">Card</a> <a href="#tab">Tab</a> <a href="#contextual">Contextual</a> <a href="#progress">Progress</a> <a href="#utility">Utility</a> <br/>
 			</nav>
 				<div class="col-sm-12 col-md-8 col-lg-10"><main>
 		      <div class="row" style="padding-top: 40px;" id="core-title">
@@ -116,7 +87,7 @@
 		      <div class="row" id="core">
 		        <div class="col-sm-12">
 		          <div class="card fluid">
-		            <div class="section"><h2>Core</h2>
+		            <div class="section"><h2>Core</h2> <a href="http://minicss.org/core" class="button" style="position:absolute; top: 0.375rem; right:0.375rem; margin:0.25rem;">View module</a>
 									<p>The <strong>core</strong> module contains just the Image component, which will allow you to create clean, modern image views with captions.</p>
 								</div>
 		            <div class="section row">
@@ -162,7 +133,7 @@
 					<div class="row" id="grid">
 		        <div class="col-sm-12">
 		          <div class="card fluid">
-		            <div class="section"><h2>Grid</h2>
+		            <div class="section"><h2>Grid</h2>  <a href="http://minicss.org/grid" class="button" style="position:absolute; top: 0.375rem; right:0.375rem; margin:0.25rem;">View module</a>
 									<p>The <strong>grid</strong> module contains three components corresponding to the container, row and column classes, allowing you to create responsive layouts.</p>
 								</div>
 		            <div class="section row">
@@ -285,7 +256,7 @@
 					<div class="row" id="input-control">
 		        <div class="col-sm-12">
 		          <div class="card fluid">
-		            <div class="section"><h2>Input Control</h2>
+		            <div class="section"><h2>Input Control</h2>  <a href="http://minicss.org/input_control" class="button" style="position:absolute; top: 0.375rem; right:0.375rem; margin:0.25rem;">View module</a>
 									<p>The <strong>input_control</strong> module contains multiple components for creating custom-styled input elements using input groups, such as buttons, checkboxes, file uploads and switches.</p>
 								</div>
 		            <div class="section row">
@@ -483,7 +454,7 @@
 					<div class="row" id="navigation">
 		        <div class="col-sm-12">
 		          <div class="card fluid">
-		            <div class="section"><h2>Navigation</h2>
+		            <div class="section"><h2>Navigation</h2>  <a href="http://minicss.org/navigation" class="button" style="position:absolute; top: 0.375rem; right:0.375rem; margin:0.25rem;">View module</a>
 									<p>The <strong>navigation</strong> module contains components for creating headers, footers, navigation bars and drawers.</p>
 								</div>
 		            <div class="section row">
@@ -645,7 +616,7 @@ render(h(Drawer, {
 					<div class="row" id="table">
 		        <div class="col-sm-12">
 		          <div class="card fluid">
-		            <div class="section"><h2>Table</h2>
+		            <div class="section"><h2>Table</h2>  <a href="http://minicss.org/table" class="button" style="position:absolute; top: 0.375rem; right:0.375rem; margin:0.25rem;">View module</a>
 									<p>The <strong>table</strong> module provides a single component for creating and styling tables.</p>
 								</div>
 		            <div class="section row">
@@ -690,7 +661,7 @@ render(h(Drawer, {
 					<div class="row" id="card">
 		        <div class="col-sm-12">
 		          <div class="card fluid">
-		            <div class="section"><h2>Card</h2>
+		            <div class="section"><h2>Card</h2>  <a href="http://minicss.org/card" class="button" style="position:absolute; top: 0.375rem; right:0.375rem; margin:0.25rem;">View module</a>
 									<p>The <strong>card</strong> module contains two components that allow the creation of cards and sections respectively.</p>
 								</div>
 		            <div class="section row">
@@ -729,7 +700,7 @@ render(h(Drawer, {
 					<div class="row" id="tab">
 		        <div class="col-sm-12">
 		          <div class="card fluid">
-		            <div class="section"><h2>Tab</h2>
+		            <div class="section"><h2>Tab</h2>  <a href="http://minicss.org/tab" class="button" style="position:absolute; top: 0.375rem; right:0.375rem; margin:0.25rem;">View module</a>
 									<p>The <strong>tab</strong> module contains a component for creating tabs, along with a complementary component for creating the inner structure of tabs.</p>
 								</div>
 		            <div class="section row">
@@ -782,7 +753,7 @@ render(h(Drawer, {
 					<div class="row" id="contextual">
 		        <div class="col-sm-12">
 		          <div class="card fluid">
-		            <div class="section"><h2>Contextual</h2>
+		            <div class="section"><h2>Contextual</h2>  <a href="http://minicss.org/contextual" class="button" style="position:absolute; top: 0.375rem; right:0.375rem; margin:0.25rem;">View module</a>
 									<p>The <strong>contextual</strong> module contains components for creating toast messages, tooltips and modal dialogs.</p>
 								</div>
 		            <div class="section row">
@@ -887,7 +858,7 @@ render(h(Drawer, {
 					<div class="row" id="progress">
 		        <div class="col-sm-12">
 		          <div class="card fluid">
-		            <div class="section"><h2>Progess</h2>
+		            <div class="section"><h2>Progess</h2>  <a href="http://minicss.org/progress" class="button" style="position:absolute; top: 0.375rem; right:0.375rem; margin:0.25rem;">View module</a>
 									<p>The <strong>progress</strong> module contains components for creating progress elements and donut spinners.</p>
 								</div>
 		            <div class="section row">
@@ -961,7 +932,7 @@ render(h(Drawer, {
 					<div class="row" id="utility">
 		        <div class="col-sm-12">
 		          <div class="card fluid">
-		            <div class="section"><h2>Utility</h2>
+		            <div class="section"><h2>Utility</h2>  <a href="http://minicss.org/utility" class="button" style="position:absolute; top: 0.375rem; right:0.375rem; margin:0.25rem;">View module</a>
 									<p>The <strong>utility</strong> module contains components for creating utilities, such as breadcrumbs and close icons.</p>
 								</div>
 		            <div class="section row">
@@ -1030,6 +1001,6 @@ render(h(Drawer, {
 		        </div>
 		      </div>
     		</main></div></div></div>
-    <footer style="text-align: justify;"><strong>mini.css</strong> was designed and built with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://github.com/Chalarangelo">@Chalarangelo</a>. It is licensed under the <a href="https://github.com/Chalarangelo/mini.css/blob/master/LICENSE">MIT License</a>. You can view the project's source code on <a href="https://github.com/Chalarangelo/mini.css">Github</a>.</footer>
+    <footer style="text-align: justify;"><strong>mini.css</strong> and its related React/Preact component libraries were designed and developed with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://github.com/Chalarangelo">@Chalarangelo</a>. They are licensed under the <a href="https://github.com/Chalarangelo/react-mini.css/blob/master/LICENSE">MIT License</a>. You can view the projects' source code on <a href="https://github.com/Chalarangelo/react-mini.css">Github</a>.</footer>
   </body>
 </html>

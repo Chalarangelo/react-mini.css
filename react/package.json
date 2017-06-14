@@ -1,6 +1,6 @@
 {
   "name": "mini.css-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mini.css components built with React.",
   "main": "dist/mini.css-react.js",
   "scripts": {

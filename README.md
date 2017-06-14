@@ -1,8 +1,8 @@
 # mini.css React & Preact Libraries
 Fast, lightweight **mini.css** components built with React/Preact
 
-[![npm](https://img.shields.io/npm/v/mini.css-react.svg?label=react lib)](https://www.npmjs.com/package/mini.css-react)
-[![npm](https://img.shields.io/npm/v/mini.css-preact.svg?label=preact lib)](https://www.npmjs.com/package/mini.css-preact)
+[![npm](https://img.shields.io/npm/v/mini.css-react.svg?label=react)](https://www.npmjs.com/package/mini.css-react)
+[![npm](https://img.shields.io/npm/v/mini.css-preact.svg?label=preact)](https://www.npmjs.com/package/mini.css-preact)
 [![license](https://img.shields.io/badge/license-MIT-yellow.svg)](https://github.com/Chalarangelo/react-mini.css/blob/master/LICENSE)
 
 ![Logo](/docs/page_thumb.png)

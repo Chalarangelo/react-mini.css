@@ -5,6 +5,7 @@
   "main": "dist/mini.css-react.js",
   "scripts": {
     "build": "babel src --out-dir dist",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

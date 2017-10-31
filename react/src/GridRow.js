@@ -9,7 +9,7 @@ var gridColumnMediumSuffix = 'md';
 var gridColumnLargeSuffix = 'lg';
 
 // GridRow component.
-function GridRow (props){
+export function GridRow (props){
 	var outProps = Object.assign({},props);
 	if (typeof outProps.className === 'undefined') outProps.className = gridRowClassName;
 	else outProps.className += ' ' + gridRowClassName;

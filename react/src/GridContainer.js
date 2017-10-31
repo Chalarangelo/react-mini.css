@@ -4,7 +4,7 @@ import React from 'react';
 var gridContainerClassName = 'container';
 
 // GridContainer component.
-function GridContainer (props){
+export function GridContainer (props){
 	var outProps = Object.assign({},props);
 	if (typeof outProps.className === 'undefined') outProps.className = gridContainerClassName;
 	else outProps.className += ' ' + gridContainerClassName;

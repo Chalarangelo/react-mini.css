@@ -1,10 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 // Module constants (change according to your flavor file)
 var buttonClassName = 'button';
 
-// Button component.
-function Button(props){
+export function Button(props){
 	var outProps = Object.assign({},props);
 	if (typeof outProps.type === 'undefined') outProps.type = 'button';
 	if (outProps.type != 'button' && outProps.type != 'link' && outProps.type != 'label' && outProps.type != 'input' && outProps.type != 'submit' && outProps.type != 'reset')

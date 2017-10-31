@@ -6,7 +6,7 @@ var inputGroupFluidClassName = 'fluid';
 var inputGroupVerticalClassName = 'vertical';
 
 // InputGroup component.
-function InputGroup (props){
+export function InputGroup (props){
 	var outProps = Object.assign({}, props);
 	if (typeof outProps.fluid === 'undefined') outProps.fluid = false;
 	if (typeof outProps.vertical === 'undefined') outProps.vertical = false;

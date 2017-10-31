@@ -6,7 +6,7 @@ var inputGroupClassName = 'input-group';
 var switchClassName = 'switch';
 
 // Switch component.
-function Switch (props){
+export function Switch (props){
 	var outProps = Object.assign({}, props);
 	if (typeof outProps.id === 'undefined') outProps.id = 'switch_'+generateUniqueId();
 	if (typeof outProps.className === 'undefined') outProps.className = '';

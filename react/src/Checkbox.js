@@ -5,7 +5,7 @@ import generateUniqueId from './util/idGenerator';
 var inputGroupClassName = 'input-group';
 
 // Checkbox component.
-function Checkbox (props){
+export function Checkbox (props){
 	var outProps = Object.assign({}, props);
 	if (typeof outProps.labelText === 'undefined') throw "Error: The 'Checkbox' component's 'labelText' property is mandatory. Please specify a value.";
 	if (typeof outProps.id === 'undefined') outProps.id = 'checkbox_'+generateUniqueId();

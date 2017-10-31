@@ -6,7 +6,7 @@ var inputGroupClassName = 'input-group';
 var buttonClassName = 'button';
 
 // FileUpload component.
-function FileUpload (props){
+export function FileUpload (props){
 	var outProps = Object.assign({}, props);
 	if (typeof outProps.id === 'undefined') outProps.id = 'fileupload_'+generateUniqueId();
 	if (typeof outProps.className === 'undefined') outProps.className = '';

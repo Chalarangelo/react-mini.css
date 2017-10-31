@@ -5,7 +5,7 @@ import generateUniqueId from './util/idGenerator';
 var navigationSublinkPrefix = 'sublink';
 
 // NavigationBar component.
-function NavigationBar(props){
+export function NavigationBar(props){
 	var outProps = Object.assign({},props);
 	var childrenToRender = [];
 	var temp = (Array.isArray(outProps.children)) ? outProps.children : [outProps.children];

@@ -4,7 +4,7 @@ import React from 'react';
 var toastClassName = 'toast';
 
 // Toast component.
-function Toast(props){
+export function Toast(props){
 	var outProps = Object.assign({},props);
 	if (typeof outProps.className === 'undefined') outProps.className = toastClassName;
 	else outProps.className += ' ' + toastClassName;

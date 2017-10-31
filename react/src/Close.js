@@ -4,7 +4,7 @@ import React from 'react';
 var closeClassName = 'close';
 
 // Close component.
-function Close (props){
+export function Close (props){
 	var outProps = Object.assign({}, props);
 	if (typeof outProps.children !== 'undefined') throw "Error: A 'Close' component must not have any children.";
 	if (typeof outProps.elementType === 'undefined') outProps.elementType = 'span';

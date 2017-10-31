@@ -1,7 +1,8 @@
 import React from 'react';
+import generateUniqueId from './util/idGenerator'
 
 // Image component.
-function Image (props){
+export function Image (props){
 	var outProps = Object.assign({}, props);
 	if (typeof outProps.src === 'undefined')
 		throw "Error: An 'Image' component must have a 'src' property.";

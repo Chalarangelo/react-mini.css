@@ -4,7 +4,7 @@ import React from 'react';
 var footerStickyClassName = 'sticky';
 
 // Footer component.
-function Footer(props){
+export function Footer(props){
 	var outProps = Object.assign({},props);
 	if (typeof outProps.sticky === 'undefined') outProps.sticky = false;
 	if (outProps.sticky)

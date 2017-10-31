@@ -4,7 +4,7 @@ import React from 'react';
 var spinnerDonutClassName = 'spinner-donut';
 
 // Donut Spinner component.
-function SpinnerDonut (props){
+export function SpinnerDonut (props){
 	var outProps = Object.assign({}, props);
 	if (typeof outProps.children !== 'undefined') throw "Error: A 'SpinnerDonut' component must not have any children.";
 	if (typeof outProps.progressBar === 'undefined') outProps.progressBar = false;

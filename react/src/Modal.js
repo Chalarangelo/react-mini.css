@@ -7,7 +7,7 @@ var cardClassName = 'card';
 var closeClassName = 'close';
 
 // Modal component.
-function Modal(props){
+export function Modal(props){
 	var outProps = Object.assign({},props);
 	if (typeof outProps.id === 'undefined')	outProps.id = 'modal_'+ generateUniqueId();
 	if (typeof outProps.noLabel === 'undefined')	outProps.noLabel = false;

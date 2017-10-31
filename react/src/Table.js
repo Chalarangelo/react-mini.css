@@ -6,7 +6,7 @@ var tableScrollableName = 'scrollable';
 var tablePresetName = 'preset';
 
 // Table component.
-function Table (props){
+export function Table (props){
 	var outProps = Object.assign({}, props);
 	if (typeof outProps.horizontal === 'undefined') outProps.horizontal = false;
 	if (typeof outProps.scrollable === 'undefined') outProps.scrollable = false;

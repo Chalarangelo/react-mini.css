@@ -7,7 +7,7 @@ var tabsStackedClassName = 'stacked';
 
 // Technically speaking, the Tab is a non-component, meaning it should not be
 // rendered on its own. It depends on the Tabs component for proper rendering.
-function Tab(props){
+export function Tab(props){
 	var outProps = Object.assign({}, props);
 	if (typeof outProps.checked === 'undefined') outProps.checked = false;
 	if (typeof outProps.defaultChecked === 'undefined') outProps.defaultChecked = false;
@@ -19,7 +19,7 @@ function Tab(props){
 }
 
 // Tabs component.
-function Tabs(props){
+export function Tabs(props){
 	var outProps = Object.assign({}, props);
 	if (typeof outProps.stacked === 'undefined') outProps.stacked = false;
 	if (typeof outProps.multiple === 'undefined') outProps.multiple = false;

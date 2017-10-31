@@ -7,7 +7,7 @@ var headerLogoClassName = 'logo';
 var buttonClassName = 'button';
 
 // Header component.
-function Header(props){
+export function Header(props){
 	var outProps = Object.assign({},props);
 	if (typeof outProps.sticky === 'undefined') outProps.sticky = false;
 	if (outProps.sticky)

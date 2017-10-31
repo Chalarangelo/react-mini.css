@@ -3,7 +3,7 @@ import React from 'react';
 // Module constants (change according to your flavor file)
 var progressMaxValue = 1000;
 // Progress component.
-function Progress(props) {
+export function Progress(props) {
 	var outProps = Object.assign({},props);
 	if (typeof outProps.max === 'undefined') outProps.max = progressMaxValue;
 	if (typeof outProps.value === 'undefined') outProps.value = 0;

@@ -5,7 +5,7 @@ var cardClassName = 'card';
 var sectionClassName = 'section';
 
 // Card component.
-function Card(props){
+export function Card(props){
 	var outProps = Object.assign({},props);
 	if (typeof outProps.className === 'undefined') outProps.className = cardClassName;
 	else outProps.className += ' ' + cardClassName;
@@ -14,7 +14,7 @@ function Card(props){
 	);
 }
 // Section component.
-function Section(props){
+export function Section(props){
 	var outProps = Object.assign({},props);
 	if (typeof outProps.className === 'undefined') outProps.className = sectionClassName;
 	else outProps.className += ' ' + sectionClassName;

@@ -1,11 +1,11 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 
 // Module constants (change according to your flavor file)
 var tooltipClassName = 'tooltip';
 var tooltipBottomClassName = 'bottom';
 
 // Tooltip component.
-function Tooltip(attributes) {
+export function Tooltip(attributes) {
 	var outProps = Object.assign({},attributes);
 	if (typeof outProps.tooltipText === 'undefined') throw "Error: The 'Tooltip' component's 'tooltipText' property is mandatory. Please specify a value.";
 	if (typeof outProps.bottom === 'undefined') outProps.bottom = false;

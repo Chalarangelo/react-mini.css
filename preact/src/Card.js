@@ -1,11 +1,11 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 
 // Module constants (change according to your flavor file)
 var cardClassName = 'card';
 var sectionClassName = 'section';
 
 // Card component.
-function Card(attributes){
+export function Card(attributes){
 	var outProps = Object.assign({},attributes);
 	if (typeof outProps.className === 'undefined') outProps.className = cardClassName;
 	else outProps.className += ' ' + cardClassName;
@@ -14,7 +14,7 @@ function Card(attributes){
 	);
 }
 // Section component.
-function Section(attributes){
+export function Section(attributes){
 	var outProps = Object.assign({},attributes);
 	if (typeof outProps.className === 'undefined') outProps.className = sectionClassName;
 	else outProps.className += ' ' + sectionClassName;

@@ -1,4 +1,4 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 
 // Module constants (change according to your flavor file)
 var gridColumnClassNamePrefix = 'col';
@@ -9,7 +9,7 @@ var gridColumnLargeSuffix = 'lg';
 var gridColumnOffsetPrefix = 'offset';
 
 // GridColumn component.
-function GridColumn (attributes){
+export function GridColumn (attributes){
 	var outProps = Object.assign({},attributes);
 	if (typeof outProps.extraSmall === 'undefined' && typeof outProps.small === 'undefined' && typeof outProps.medium === 'undefined' && typeof outProps.large === 'undefined')
 		throw "Error: The 'GridColumn' component must have a defined layout for at least one screen size .";

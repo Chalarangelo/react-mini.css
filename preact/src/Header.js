@@ -1,4 +1,4 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 import generateUniqueId from './util/idGenerator';
 
 // Module constants (change according to your flavor file)
@@ -7,7 +7,7 @@ var headerLogoClassName = 'logo';
 var buttonClassName = 'button';
 
 // Header component.
-function Header(attributes){
+export function Header(attributes){
 	var outProps = Object.assign({},attributes);
 	if (typeof outProps.sticky === 'undefined') outProps.sticky = false;
 	if (outProps.sticky)

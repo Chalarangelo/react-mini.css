@@ -1,10 +1,10 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 
 // Module constants (change according to your flavor file)
 var spinnerDonutClassName = 'spinner-donut';
 
 // Donut Spinner component.
-function SpinnerDonut (attributes){
+export function SpinnerDonut (attributes){
 	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.children !== 'undefined' && outProps.children.length != 0) throw "Error: A 'SpinnerDonut' component must not have any children.";
 	if (typeof outProps.progressBar === 'undefined') outProps.progressBar = false;

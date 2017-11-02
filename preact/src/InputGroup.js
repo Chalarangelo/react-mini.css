@@ -1,4 +1,4 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 
 // Module constants (change according to your flavor file)
 var inputGroupClassName = 'input-group';
@@ -6,7 +6,7 @@ var inputGroupFluidClassName = 'fluid';
 var inputGroupVerticalClassName = 'vertical';
 
 // InputGroup component.
-function InputGroup (attributes){
+export function InputGroup (attributes){
 	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.fluid === 'undefined') outProps.fluid = false;
 	if (typeof outProps.vertical === 'undefined') outProps.vertical = false;

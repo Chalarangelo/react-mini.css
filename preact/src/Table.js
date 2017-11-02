@@ -1,4 +1,4 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 
 // Module constants (change according to your flavor file)
 var tableHorizontalName = 'horizontal';
@@ -6,7 +6,7 @@ var tableScrollableName = 'scrollable';
 var tablePresetName = 'preset';
 
 // Table component.
-function Table (attributes){
+export function Table (attributes){
 	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.horizontal === 'undefined') outProps.horizontal = false;
 	if (typeof outProps.scrollable === 'undefined') outProps.scrollable = false;

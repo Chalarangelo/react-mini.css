@@ -1,10 +1,10 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 
 // Module constants (change according to your flavor file)
 var closeClassName = 'close';
 
 // Close component.
-function Close (attributes){
+export function Close (attributes){
 	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.children !== 'undefined' && outProps.children.length != 0) throw "Error: A 'Close' component must not have any children.";
 	if (typeof outProps.elementType === 'undefined') outProps.elementType = 'span';

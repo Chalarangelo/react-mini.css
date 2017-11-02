@@ -1,7 +1,7 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 
 // Image component.
-function Image (attributes){
+export function Image (attributes){
 	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.src === 'undefined')
 		throw "Error: An 'Image' component must have a 'src' property.";

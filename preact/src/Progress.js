@@ -1,9 +1,9 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 
 // Module constants (change according to your flavor file)
 var progressMaxValue = 1000;
 // Progress component.
-function Progress(attributes) {
+export function Progress(attributes) {
 	var outProps = Object.assign({},attributes);
 	if (typeof outProps.max === 'undefined') outProps.max = progressMaxValue;
 	if (typeof outProps.value === 'undefined') outProps.value = 0;

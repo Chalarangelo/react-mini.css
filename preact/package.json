@@ -1,6 +1,6 @@
 {
   "name": "mini.css-preact",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Mini.css components built with Preact.",
   "main": "dist/mini.css-preact.js",
   "scripts": {

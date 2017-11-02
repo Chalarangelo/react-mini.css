@@ -1,4 +1,4 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 import generateUniqueId from './util/idGenerator';
 
 // Module constants (change according to your flavor file)
@@ -7,7 +7,7 @@ var tabsStackedClassName = 'stacked';
 
 // Technically speaking, the Tab is a non-component, meaning it should not be
 // rendered on its own. It depends on the Tabs component for proper rendering.
-function Tab(attributes){
+export function Tab(attributes){
 	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.checked === 'undefined') outProps.checked = false;
 	if (typeof outProps.defaultChecked === 'undefined') outProps.defaultChecked = false;
@@ -19,7 +19,7 @@ function Tab(attributes){
 }
 
 // Tabs component.
-function Tabs(attributes){
+export function Tabs(attributes){
 	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.stacked === 'undefined') outProps.stacked = false;
 	if (typeof outProps.multiple === 'undefined') outProps.multiple = false;

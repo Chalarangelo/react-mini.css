@@ -1,4 +1,4 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 import generateUniqueId from './util/idGenerator';
 
 // Module constants (change according to your flavor file)
@@ -7,7 +7,7 @@ var cardClassName = 'card';
 var closeClassName = 'close';
 
 // Modal component.
-function Modal(attributes){
+export function Modal(attributes){
 	var outProps = Object.assign({},attributes);
 	if (typeof outProps.id === 'undefined')	outProps.id = 'modal_'+ generateUniqueId();
 	if (typeof outProps.noLabel === 'undefined')	outProps.noLabel = false;

@@ -1,11 +1,11 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 import generateUniqueId from './util/idGenerator';
 
 // Module constants (change according to your flavor file)
 var navigationSublinkPrefix = 'sublink';
 
 // NavigationBar component.
-function NavigationBar(attributes){
+export function NavigationBar(attributes){
 	var outProps = Object.assign({},attributes);
 	var childrenToRender = [];
 	var temp = (Array.isArray(outProps.children)) ? outProps.children : [outProps.children];

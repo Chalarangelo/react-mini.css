@@ -1,4 +1,4 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 import generateUniqueId from './util/idGenerator';
 
 // Module constants (change according to your flavor file)
@@ -6,7 +6,7 @@ var inputGroupClassName = 'input-group';
 var switchClassName = 'switch';
 
 // Switch component.
-function Switch (attributes){
+export function Switch (attributes){
 	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.id === 'undefined') outProps.id = 'switch_'+generateUniqueId();
 	if (typeof outProps.className === 'undefined') outProps.className = '';

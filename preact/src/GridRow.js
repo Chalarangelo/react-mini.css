@@ -1,4 +1,4 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 
 // Module constants (change according to your flavor file)
 var gridRowClassName = 'row';
@@ -9,7 +9,7 @@ var gridColumnMediumSuffix = 'md';
 var gridColumnLargeSuffix = 'lg';
 
 // GridRow component.
-function GridRow (attributes){
+export function GridRow (attributes){
 	var outProps = Object.assign({},attributes);
 	if (typeof outProps.className === 'undefined') outProps.className = gridRowClassName;
 	else outProps.className += ' ' + gridRowClassName;

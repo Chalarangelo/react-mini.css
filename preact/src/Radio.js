@@ -1,11 +1,11 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 import generateUniqueId from './util/idGenerator';
 
 // Module constants (change according to your flavor file)
 var inputGroupClassName = 'input-group';
 
 // Radio component.
-function Radio (attributes){
+export function Radio (attributes){
 	var outProps = Object.assign({}, attributes);
 	if (typeof outProps.labelText === 'undefined') throw "Error: The 'Radio' component's 'labelText' property is mandatory. Please specify a value.";
 	if (typeof outProps.id === 'undefined') outProps.id = 'radio_'+generateUniqueId();

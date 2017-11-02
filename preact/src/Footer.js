@@ -1,10 +1,10 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 
 // Module constants (change according to your flavor file)
 var footerStickyClassName = 'sticky';
 
 // Footer component.
-function Footer(attributes){
+export function Footer(attributes){
 	var outProps = Object.assign({},attributes);
 	if (typeof outProps.sticky === 'undefined') outProps.sticky = false;
 	if (outProps.sticky)

@@ -1,11 +1,11 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 import generateUniqueId from './util/idGenerator';
 
 // Module constants (change according to your flavor file)
 var breadcrumbsClassName = 'breadcrumbs';
 
 // Breadcrumbs component.
-function Breadcrumbs(attributes){
+export function Breadcrumbs(attributes){
 	var outProps = Object.assign({},attributes);
 	if (typeof outProps.className === 'undefined') outProps.className = breadcrumbsClassName;
 	else outProps.className += ' ' + breadcrumbsClassName;

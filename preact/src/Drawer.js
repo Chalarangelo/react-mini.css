@@ -1,4 +1,4 @@
-let { h, render, Component } = preact;
+import { h, render, Component } from 'preact';
 import generateUniqueId from './util/idGenerator';
 
 // Module constants (change according to your flavor file)
@@ -9,7 +9,7 @@ var drawerPersistenClassName = 'persistent';
 var drawerCloseName = 'close';
 
 // DrawerToggle component.
-function DrawerToggle(attributes){
+export function DrawerToggle(attributes){
 	var outProps = Object.assign({},attributes);
 	if (typeof outProps['htmlFor'] === 'undefined') throw "Error: A 'DrawerToggle' component must have an 'htmlFor' attribute.";
 	if (typeof outProps.className === 'undefined') outProps.className = drawerToggleClassName;
@@ -23,7 +23,7 @@ function DrawerToggle(attributes){
 }
 
 // Drawer component.
-function Drawer(attributes){
+export function Drawer(attributes){
 	var outProps = Object.assign({},attributes);
 	if (typeof outProps.id === 'undefined') throw "Error: A 'Drawer' component must have an 'id' attribute.";
 	if (typeof outProps.className === 'undefined') outProps.className = drawerClassName;

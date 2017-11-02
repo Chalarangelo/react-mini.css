@@ -4,6 +4,8 @@
   "description": "Mini.css components built with Preact.",
   "main": "dist/mini.css-preact.js",
   "scripts": {
+    "build": "babel src --out-dir dist",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,7 +17,7 @@
     "preact",
     "component",
     "library",
-		"framework"
+    "framework"
   ],
   "author": "Angelos Chalaris (chalarangelo@gmail.com)",
   "license": "MIT",
@@ -23,8 +25,12 @@
     "url": "https://github.com/Chalarangelo/react-mini.css/issues"
   },
   "homepage": "https://chalarangelo.github.io/react-mini.css/",
-	"peerDependencies": {
-		"mini.css": "^2.3.0",
-    "preact": "^8.1.0"
-	}
+  "peerDependencies": {
+    "mini.css": ">2.3.0",
+    "preact": ">8.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
 }
